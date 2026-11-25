@@ -1,0 +1,11 @@
+{
+  "name": "bit-intake-review",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build in Tulsa program check-in: show each program's intake and review back to BiT and record their confirmation.",
+  "scripts": {
+    "dev": "node tools/dev-server.js",
+    "drafts": "python3 tools/build_programs.py",
+    "preview": "node tools/build-preview.js"
+  }
+}

@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BiT Intake &amp; Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400..700&display=swap">
+<style>
+/* Layout: sticky top rail, a program grid as home, and one long program page (sentence, step picture, rules, after, questions, confirm). Tokens follow Gabe's Intake & Review Inventory so the two read as one family. */
+:root{
+  --sh-paper:#eef1f4; --sh-sheet:#ffffff; --sh-sheet-2:#f5f7f9; --sh-sheet-3:#e7ebf0;
+  --sh-rule:#d7dde4; --sh-rule-2:#c1cad4;
+  --sh-ink:#141d27; --sh-ink-2:#44515e; --sh-ink-3:#6b7885;
+  --sh-accent:#2f58c9; --sh-accent-ink:#2347a6; --sh-accent-soft:#e3e9fa;
+  --sh-ok:#1f7a46; --sh-ok-soft:#dcf1e4; --sh-ns:#b83427; --sh-ns-soft:#fbe3e0;
+  --sh-wd:#a35f00; --sh-wd-soft:#fbecd5; --sh-tbd:#9a6206; --sh-tbd-soft:#fff3d6; --sh-tbd-line:#e6c27a;
+  --sh-head:rgba(238,241,244,.88);
+  --sh-f-display:"Archivo","DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --sh-f-body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --sh-f-mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --sh-paper:#0e1317; --sh-sheet:#161c21; --sh-sheet-2:#1b2228; --sh-sheet-3:#242c33;
+    --sh-rule:#2a333b; --sh-rule-2:#3a454f;
+    --sh-ink:#e6ebef; --sh-ink-2:#b3bec7; --sh-ink-3:#8b98a4;
+    --sh-accent:#8aa8ff; --sh-accent-ink:#a9c0ff; --sh-accent-soft:#1f2a45;
+    --sh-ok:#6fd39a; --sh-ok-soft:#163024; --sh-ns:#ff8a7a; --sh-ns-soft:#3a1f1c;
+    --sh-wd:#f2b55a; --sh-wd-soft:#3a2b14; --sh-tbd:#f2c066; --sh-tbd-soft:#33291a; --sh-tbd-line:#7a5d22;
+    --sh-head:rgba(14,19,23,.88);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --sh-paper:#0e1317; --sh-sheet:#161c21; --sh-sheet-2:#1b2228; --sh-sheet-3:#242c33;
+  --sh-rule:#2a333b; --sh-rule-2:#3a454f;
+  --sh-ink:#e6ebef; --sh-ink-2:#b3bec7; --sh-ink-3:#8b98a4;
+  --sh-accent:#8aa8ff; --sh-accent-ink:#a9c0ff; --sh-accent-soft:#1f2a45;
+  --sh-ok:#6fd39a; --sh-ok-soft:#163024; --sh-ns:#ff8a7a; --sh-ns-soft:#3a1f1c;
+  --sh-wd:#f2b55a; --sh-wd-soft:#3a2b14; --sh-tbd:#f2c066; --sh-tbd-soft:#33291a; --sh-tbd-line:#7a5d22;
+  --sh-head:rgba(14,19,23,.88);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;background:var(--sh-paper);color:var(--sh-ink);font:15px/1.55 var(--sh-f-body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--sh-paper)}
+:focus-visible{outline:2px solid var(--sh-accent);outline-offset:2px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3,h4{margin:0;font-family:var(--sh-f-display);font-stretch:86%;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+a{color:var(--sh-accent-ink)}
+.mono{font-family:var(--sh-f-mono);font-size:.86em}
+.small{font-size:12.5px;color:var(--sh-ink-3)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* top rail */
+.shell{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--sh-head);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--sh-rule)}
+.shell-in{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;min-height:60px;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1240px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto;background:none;border:0;padding:0;text-align:left}
+.brand svg{width:30px;height:18px;flex:none}
+.brand .bt{display:flex;flex-direction:column;line-height:1.1}
+.brand b{font-family:var(--sh-f-display);font-weight:760;font-stretch:88%;font-size:16px}
+.brand .bs{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sh-ink-3);font-weight:600}
+.toggles{display:flex;gap:6px;flex-wrap:wrap}
+.tog{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--sh-rule-2);background:var(--sh-sheet);font-size:13px;font-weight:600;color:var(--sh-ink-2)}
+.tog .dot{width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor}
+.tog[aria-pressed="true"]{background:var(--sh-ink);border-color:var(--sh-ink);color:var(--sh-sheet)}
+.tog[aria-pressed="true"] .dot{background:currentColor}
+
+.wrap{max-width:1240px;margin:0 auto;padding-block:22px 96px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+
+/* shared */
+.card{background:var(--sh-sheet);border:1px solid var(--sh-rule);border-radius:14px;padding:18px;min-width:0}
+.kicker{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--sh-accent-ink);font-weight:650;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.lede{font-size:16px;color:var(--sh-ink-2);max-width:70ch;text-wrap:pretty}
+.sec{display:flex;flex-direction:column;gap:10px;min-width:0}
+.shd{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:6px 16px;margin-top:10px}
+.shd .t{display:flex;flex-direction:column;gap:3px;max-width:72ch}
+.shd .k{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--sh-ink-3);font-weight:650}
+.shd h3{font-weight:760;font-size:23px;line-height:1.12}
+.shd p{color:var(--sh-ink-2);font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:8px 13px;border-radius:9px;border:1px solid var(--sh-rule-2);background:var(--sh-sheet);color:var(--sh-ink);font-weight:650;font-size:13.5px;line-height:1.2}
+.btn:hover{border-color:var(--sh-ink-3)}
+.btn.pri{background:var(--sh-accent);border-color:var(--sh-accent);color:var(--sh-sheet)}
+.btn.dark{background:var(--sh-ink);border-color:var(--sh-ink);color:var(--sh-sheet)}
+.btn.ghost{background:none;border-color:transparent;color:var(--sh-accent-ink);padding-inline:6px}
+.btn.okb{background:var(--sh-ok-soft);border-color:transparent;color:var(--sh-ok)}
+.btn.sm{padding:5px 9px;font-size:12.5px;border-radius:8px}
+.btn.warn{color:var(--sh-ns)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:650;white-space:nowrap}
+.pill.draft{background:var(--sh-sheet-3);color:var(--sh-ink-2)}
+.pill.prog{background:var(--sh-tbd-soft);color:var(--sh-tbd);box-shadow:inset 0 0 0 1px var(--sh-tbd-line)}
+.pill.done{background:var(--sh-ok-soft);color:var(--sh-ok)}
+.pill.tpl{background:var(--sh-accent-soft);color:var(--sh-accent-ink)}
+.pill.ns{background:var(--sh-ns-soft);color:var(--sh-ns)}
+.pill.wd{background:var(--sh-wd-soft);color:var(--sh-wd)}
+.pill.side{background:repeating-linear-gradient(135deg,var(--sh-accent-soft) 0 7px,transparent 7px 12px);color:var(--sh-accent-ink);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sh-accent) 35%,transparent)}
+input[type=text],input[type=password],input[type=number],textarea,select{width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--sh-rule-2);background:var(--sh-sheet-2);color:var(--sh-ink);font-size:14px;line-height:1.4}
+textarea{min-height:76px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--sh-accent);outline-offset:0;border-color:transparent;background:var(--sh-sheet)}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:12.5px;font-weight:650;min-width:0}
+label.f .hint{font-weight:400;color:var(--sh-ink-3)}
+
+/* confidence legend + marks */
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12.5px;color:var(--sh-ink-2);align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.lg{display:inline-block;width:26px;height:0;border-bottom:2px solid var(--sh-ink-2)}
+.lg.g{border-bottom-style:dashed;border-color:var(--sh-tbd)}
+.lg.u{width:auto;height:auto;border:0;padding:0 6px;border-radius:999px;background:var(--sh-tbd-soft);color:var(--sh-tbd);font-weight:700}
+.lg.k{width:auto;height:auto;border:0;padding:0 6px;border-radius:999px;background:var(--sh-ok-soft);color:var(--sh-ok);font-weight:700}
+
+/* home */
+.hero{display:flex;flex-direction:column;gap:12px;padding:22px}
+.hero h1{font-weight:780;font-stretch:84%;font-size:clamp(28px,3.6vw,42px);line-height:1.04}
+.hero h2{font-weight:780;font-stretch:84%;font-size:clamp(26px,3.2vw,38px);line-height:1.05}
+.facts{display:flex;flex-wrap:wrap;gap:8px 26px;margin:0;padding:0;list-style:none}
+.facts li{display:flex;flex-direction:column;gap:1px;font-size:14px;min-width:0}
+.facts em{font-style:normal;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--sh-ink-3);font-weight:650}
+.meter{height:6px;border-radius:999px;background:var(--sh-sheet-3);overflow:hidden;max-width:360px}
+.meter i{display:block;height:100%;background:var(--sh-ok);border-radius:inherit}
+.plist{display:flex;flex-direction:column;border:1px solid var(--sh-rule);border-radius:14px;background:var(--sh-sheet);overflow:hidden}
+.prow,.phead{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,1.7fr) minmax(0,1.1fr) 118px;gap:14px;padding:12px 16px;align-items:center}
+.phead{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--sh-ink-3);font-weight:650;border-bottom:1px solid var(--sh-rule-2);background:var(--sh-sheet-2)}
+.prow{border:0;border-top:1px solid var(--sh-rule);background:none;text-align:left;width:100%;font-size:13.5px;color:var(--sh-ink-2)}
+.prow:first-of-type{border-top:0}
+.prow:hover{background:var(--sh-sheet-2)}
+.prow .nm{display:flex;flex-direction:column;gap:2px;min-width:0}
+.prow .nm b{font-size:15px;color:var(--sh-ink);font-weight:700}
+.prow .nm span{font-size:12px;color:var(--sh-ink-3)}
+.prow .cell{min-width:0;overflow-wrap:anywhere}
+.prow .lab{display:none}
+.q-mark{color:var(--sh-tbd);font-weight:700}
+.mchev{display:flex;flex-wrap:wrap;gap:4px 0}
+.mchev span{height:22px;display:inline-flex;align-items:center;padding:0 12px 0 11px;margin-right:-3px;font-size:11.5px;font-weight:650;white-space:nowrap;clip-path:polygon(0 0,calc(100% - 7px) 0,100% 50%,calc(100% - 7px) 100%,0 100%,6px 50%);background:var(--sh-accent-soft);color:var(--sh-accent-ink)}
+.mchev span:first-child{clip-path:polygon(0 0,calc(100% - 7px) 0,100% 50%,calc(100% - 7px) 100%,0 100%);padding-left:8px}
+.mchev span.g{background:var(--sh-tbd-soft);color:var(--sh-tbd)}
+@media (max-width:880px){
+  .phead{display:none}
+  .prow{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 14px;padding:14px 16px}
+  .prow .nm{grid-column:1/-1}
+  .prow .steps{grid-column:1/-1}
+  .prow .lab{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sh-ink-3);font-weight:650;margin-bottom:2px}
+}
+.tri{display:flex;flex-direction:column;border:1px solid var(--sh-rule);border-radius:14px;background:var(--sh-sheet);overflow:hidden}
+.trow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;padding:12px 16px;border-top:1px solid var(--sh-rule);align-items:center}
+.trow:first-child{border-top:0}
+.trow b{font-size:14.5px}
+.trow p{font-size:13px;color:var(--sh-ink-3)}
+@media (max-width:760px){.trow{grid-template-columns:minmax(0,1fr)}}
+.seg{display:inline-flex;flex-wrap:wrap;gap:3px;padding:3px;border-radius:10px;background:var(--sh-sheet-2);border:1px solid var(--sh-rule)}
+.seg button{border:0;background:none;padding:5px 10px;border-radius:7px;font-size:12.5px;font-weight:600;color:var(--sh-ink-2)}
+.seg button[aria-pressed="true"]{background:var(--sh-sheet);color:var(--sh-ink);box-shadow:0 0 0 1px var(--sh-rule-2),0 1px 2px rgba(0,0,0,.08)}
+.seg button[aria-pressed="true"].no{color:var(--sh-ns)}
+.seg button[aria-pressed="true"].yes{color:var(--sh-ok)}
+
+/* guide notes (Richard) */
+.ask{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:10px;background:var(--sh-accent-soft);color:var(--sh-ink);font-size:13.5px}
+.ask b{font-family:var(--sh-f-mono);font-size:11px;font-weight:500;color:var(--sh-accent-ink);padding-top:2px;white-space:nowrap}
+.ask ol{margin:4px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+
+/* program page */
+.crumb{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--sh-ink-3);flex-wrap:wrap}
+.sentence{font-size:clamp(18px,2.1vw,22px);line-height:1.75;color:var(--sh-ink);max-width:62ch;text-wrap:pretty}
+.chip{display:inline;font:inherit;color:inherit;background:none;border:0;padding:0 1px;border-bottom:2px solid var(--sh-ink-2);border-radius:0;cursor:pointer;font-weight:600}
+.chip:hover{background:var(--sh-sheet-2)}
+.chip.guess{border-bottom:2px dashed var(--sh-tbd)}
+.chip.unk{border:0;padding:1px 9px;border-radius:999px;background:var(--sh-tbd-soft);color:var(--sh-tbd);font-weight:650;font-size:.86em}
+.chip.ok{border-bottom-color:var(--sh-ok)}
+.chip.ok::after{content:"";display:inline-block;width:.42em;height:.7em;border:solid var(--sh-ok);border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-.18em);margin-left:.3em}
+.chip[aria-expanded="true"]{background:var(--sh-accent-soft)}
+.adds{display:flex;flex-wrap:wrap;gap:6px}
+.editor{border:1px solid var(--sh-accent);box-shadow:0 0 0 3px var(--sh-accent-soft);border-radius:14px;background:var(--sh-sheet);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.editor h4{font-size:17px;font-weight:740}
+.editor .opts{display:flex;flex-wrap:wrap;gap:6px}
+.editor .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.editor .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:700px){.editor .grid2{grid-template-columns:minmax(0,1fr)}}
+.opt{border:1px solid var(--sh-rule-2);background:var(--sh-sheet-2);padding:6px 11px;border-radius:999px;font-size:13px;font-weight:550;color:var(--sh-ink-2)}
+.opt[aria-pressed="true"]{background:var(--sh-accent-soft);border-color:var(--sh-accent);color:var(--sh-accent-ink)}
+.src{font-size:12px;color:var(--sh-ink-3)}
+.why{font-size:13px;color:var(--sh-ink-2);background:var(--sh-tbd-soft);border-radius:8px;padding:7px 10px}
+
+/* the step picture */
+.flowwrap{overflow-x:auto}
+.flow{display:flex;align-items:stretch;gap:0;min-width:0}
+.node{display:flex;align-items:center;justify-content:center;flex:none;padding:0 14px;border-radius:999px;font-weight:700;font-size:13.5px;align-self:center;min-height:40px;border:1px solid var(--sh-rule-2);background:var(--sh-sheet)}
+.node.end{background:var(--sh-ok-soft);color:var(--sh-ok);border-color:transparent}
+.arr{flex:none;width:30px;display:flex;align-items:center;justify-content:center;color:var(--sh-ink-3)}
+.arr svg{width:22px;height:14px}
+.stepc{flex:1 1 0;min-width:168px;display:flex;flex-direction:column;gap:8px;padding:12px 13px;border-radius:12px;border:1.5px solid var(--sh-accent);background:var(--sh-sheet);text-align:left;position:relative}
+.stepc.guess{border-style:dashed;border-color:var(--sh-tbd-line);background:var(--sh-sheet)}
+.stepc.ok{border-color:var(--sh-ok);border-style:solid}
+.stepc.sel{box-shadow:0 0 0 3px var(--sh-accent-soft)}
+.stepc .n{display:flex;justify-content:space-between;gap:8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sh-ink-3);font-weight:650}
+.stepc h4{font-size:16.5px;font-weight:740;line-height:1.15}
+.stepc .who{font-size:13px;color:var(--sh-ink-2)}
+.stepc .how{font-size:13px;color:var(--sh-ink-2)}
+.stepc .outs{display:flex;flex-wrap:wrap;gap:4px}
+.stepc .outs span{font-size:11.5px;font-weight:650;padding:1px 7px;border-radius:999px;background:var(--sh-sheet-2);border:1px solid var(--sh-rule);color:var(--sh-ink-2)}
+.stepc .outs span.dec{color:var(--sh-ns)}
+.stepc .outs span.adv{color:var(--sh-ok)}
+.stepc .cal{font-size:12px;color:var(--sh-accent-ink);font-weight:600}
+.stepc .acts{display:flex;gap:6px;margin-top:auto;padding-top:2px}
+.stepc .team{font-family:var(--sh-f-mono);font-size:11px;color:var(--sh-ink-3);border-top:1px dashed var(--sh-rule-2);padding-top:6px;overflow-wrap:anywhere}
+.addstep{flex:none;align-self:center;width:30px;height:30px;border-radius:50%;border:1px dashed var(--sh-rule-2);background:var(--sh-sheet);color:var(--sh-ink-3);font-weight:700;margin-left:8px}
+@media (max-width:900px){
+  .flow{flex-direction:column;align-items:stretch}
+  .node{align-self:flex-start}
+  .arr{width:auto;height:26px;justify-content:flex-start;padding-left:18px}
+  .arr svg{transform:rotate(90deg)}
+  .stepc{min-width:0}
+  .addstep{margin:8px 0 0;align-self:flex-start}
+}
+.exits{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12.5px;color:var(--sh-ink-3)}
+.today{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.today span.w{font-size:12px;padding:2px 8px;border-radius:6px;background:var(--sh-sheet-2);border:1px solid var(--sh-rule);color:var(--sh-ink-2)}
+
+/* rules / after / questions lists */
+.list{display:flex;flex-direction:column;border:1px solid var(--sh-rule);border-radius:14px;background:var(--sh-sheet);overflow:hidden}
+.li{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:6px 12px;padding:11px 14px;border-top:1px solid var(--sh-rule);align-items:start}
+.li:first-child{border-top:0}
+.li .mk{width:14px;height:14px;margin-top:4px;border-radius:50%;border:2px solid var(--sh-ink-2)}
+.li .mk.guess{border-style:dashed;border-color:var(--sh-tbd)}
+.li .mk.unk{border-color:var(--sh-tbd);background:var(--sh-tbd-soft)}
+.li .mk.ok{border-color:var(--sh-ok);background:var(--sh-ok)}
+.li .tx{display:flex;flex-direction:column;gap:4px;min-width:0}
+.li .tx > span{font-size:14.5px}
+.li .tx small{font-size:12.5px;color:var(--sh-ink-3)}
+.li .ctl{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;align-items:center}
+@media (max-width:760px){.li{grid-template-columns:22px minmax(0,1fr)}.li .ctl{grid-column:2;justify-content:flex-start}}
+.li.empty{grid-template-columns:minmax(0,1fr);color:var(--sh-ink-3);font-size:13.5px}
+.qa{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-top:1px solid var(--sh-rule)}
+.qa:first-child{border-top:0}
+.qa b{font-size:14.5px;font-weight:650}
+.qa small{font-size:12.5px;color:var(--sh-ink-3)}
+.qa textarea{min-height:56px}
+
+/* confirm */
+.confirm{border:1.5px solid var(--sh-ink);border-radius:16px;background:var(--sh-sheet);padding:20px;display:flex;flex-direction:column;gap:14px}
+.confirm h3{font-size:24px;font-weight:780}
+.summary{background:var(--sh-sheet-2);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.summary ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:700px){.cols{grid-template-columns:minmax(0,1fr)}}
+.box{border:1px solid var(--sh-rule);border-radius:10px;padding:10px 12px;font-size:13px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.box b{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--sh-ink-3)}
+.box ul{margin:0;padding-left:18px}
+.done-banner{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:12px;background:var(--sh-ok-soft);color:var(--sh-ok);font-weight:650}
+.status{font-size:13px;color:var(--sh-ink-3);min-height:1.3em}
+.status.err{color:var(--sh-ns)}
+
+/* team view */
+.teamp{border:1px dashed var(--sh-rule-2);border-radius:14px;background:var(--sh-sheet-2);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.teamp .k{font-family:var(--sh-f-mono);font-size:11px;color:var(--sh-ink-3);letter-spacing:.04em}
+.chevs{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 0}
+.grp{display:inline-flex;flex-direction:column;gap:6px}
+.grp .row{display:flex;flex-wrap:wrap;gap:6px 0}
+.grp .brk{margin:0 14px 0 10px;border:1.5px solid var(--sh-accent);border-top:0;height:8px;border-radius:0 0 6px 6px;opacity:.7}
+.grp .bl{margin:0 10px;font-size:11.5px;color:var(--sh-accent-ink);font-family:var(--sh-f-mono);text-align:center}
+.chev{height:30px;display:inline-flex;align-items:center;padding:0 20px 0 18px;margin-right:-4px;font-weight:650;font-size:12.5px;white-space:nowrap;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%,10px 50%);background:var(--sh-sheet);color:var(--sh-ink-2);box-shadow:inset 0 0 0 1px var(--sh-rule)}
+.chev.first{clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%);padding-left:14px}
+.chev.stg{background:var(--sh-accent-soft);color:var(--sh-accent-ink)}
+.chev.ok{background:var(--sh-ok-soft);color:var(--sh-ok)}
+.tblw{overflow-x:auto}
+table.at{width:100%;border-collapse:collapse;font-size:13px;min-width:760px}
+table.at th{text-align:left;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--sh-ink-3);font-weight:650;padding:0 10px 8px 0;border-bottom:1px solid var(--sh-rule-2);white-space:nowrap}
+table.at td{padding:8px 10px 8px 0;border-bottom:1px solid var(--sh-rule);vertical-align:top;color:var(--sh-ink-2)}
+table.at td.m{font-family:var(--sh-f-mono);font-size:12px}
+.flags{display:flex;flex-direction:column;gap:6px}
+.flag{display:flex;gap:8px;align-items:flex-start;font-size:13px;border-radius:8px;padding:7px 10px;background:var(--sh-tbd-soft)}
+.flag b{font-family:var(--sh-f-mono);font-size:11px;font-weight:500;color:var(--sh-tbd);white-space:nowrap;padding-top:1px}
+.flag.info{background:var(--sh-accent-soft)} .flag.info b{color:var(--sh-accent-ink)}
+
+details.srcs{font-size:13px;color:var(--sh-ink-2)}
+details.srcs summary{cursor:pointer;font-weight:600;color:var(--sh-ink-3)}
+details.srcs ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:3px}
+
+/* gate */
+.gate{max-width:420px;margin:12vh auto 0;display:flex;flex-direction:column;gap:14px}
+.gate h1{font-size:30px;font-weight:780;font-stretch:84%}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--sh-ink);color:var(--sh-sheet);padding:9px 16px;border-radius:10px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;max-width:calc(100% - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="shell"><div class="shell-in">
+  <button type="button" class="brand" data-act="home" aria-label="All programs">
+    <svg viewBox="0 0 30 18" aria-hidden="true"><path d="M1 1h8l6 8-6 8H1l6-8z" fill="var(--sh-accent)" opacity=".45"/><path d="M8 1h8l6 8-6 8H8l6-8z" fill="var(--sh-accent)" opacity=".7"/><path d="M15 1h8l6 8-6 8h-8l6-8z" fill="var(--sh-accent)"/></svg>
+    <span class="bt"><b>Intake &amp; Review</b><span class="bs">Build in Tulsa · program check-in</span></span>
+  </button>
+  <div class="toggles" id="toggles"></div>
+</div></header>
+<main class="wrap" id="app"><div class="card"><p class="small">Loading…</p></div></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+'use strict';
+
+/* ------------------------------------------------------------------ vocab: the standard lists */
+// Plain words on the left are what BiT sees. The model terms are what the team view shows.
+const KINDS = {
+  check:      {label: 'Eligibility check',  short: 'Check',     model: 'Knock-out',        status: 'Submitted',        state: 'Decided Nov 19'},
+  screen:     {label: 'Application review', short: 'Review',    model: 'Screening',        status: 'Screening',        state: 'In use'},
+  interview:  {label: 'Interview',          short: 'Interview', model: 'Interview',        status: 'Interviewing',     state: 'In use'},
+  committee:  {label: 'Group decision',     short: 'Decide',    model: 'Committee',        status: 'Committee Review', state: 'In use'},
+  pitch:      {label: 'Pitch to judges',    short: 'Pitch',     model: 'Judging',          status: 'Judging',          state: 'New'},
+  reference:  {label: 'Reference check',    short: 'Refs',      model: 'Reference Check',  status: 'Selected',         state: 'Proposed'},
+  background: {label: 'Background check',   short: 'Bkgd',      model: 'Background Check', status: 'Selected',         state: 'Proposed'},
+  other:      {label: 'Something else',     short: 'Other',     model: '(new stage type)', status: '?',                state: 'New'}
+};
+const JUDGE = {
+  scored:         {label: 'Scores each question',          model: 'Scored criteria'},
+  recommendation: {label: 'Gives a yes, no or maybe',      model: 'Recommendation only'},
+  checklist:      {label: 'Checks the basics by hand',     model: 'Rule-based (manual)'},
+  auto:           {label: 'Automatic, from form answers',  model: 'Automated / rule-based'},
+  questionnaire:  {label: 'Collects answers to set questions', model: 'Questionnaire / attestation'},
+  discussion:     {label: 'Talks it through, no scores',   model: 'None (no rubric)'},
+  unknown:        {label: 'Not sure yet',                  model: '?'}
+};
+const WHO = {pc: 'Program coordinator', pm: 'Program manager', staff: 'BiT staff', committee: 'Selection committee',
+  community: 'Community reviewers', judges: 'Judges or panelists', partner: 'Partner organization', ops: 'Operations', system: 'Automatic'};
+const OUT = {advance: {label: 'Moves on', last: 'Selected', model: 'Advance'}, hold: {label: 'Kept for later', model: 'Hold'},
+  waitlist: {label: 'Waitlisted', model: 'Waitlist'}, decline: {label: 'Not selected', model: 'Decline'}};
+const EFFECT = {disqualifies: 'Rules them out', noted: 'Just noted', unknown: 'Not sure'};
+const PATTERNS = [
+  {name: 'Accelerator · 4-stage (v1)', seq: ['screen', 'interview', 'interview', 'committee']},
+  {name: 'Accelerator · 3-stage (proposed)', seq: ['screen', 'interview', 'committee']}
+];
+const BASICS = {
+  entry:    {ask: 'How do people get in?', ph: 'how people get in', opts: ['applying online', 'being nominated, by themselves or someone else', 'being invited', 'a referral from a partner', 'filling in an intake form', 'a parent or guardian applying online']},
+  form:     {ask: 'Which form do they use?', ph: 'which form', opts: [], optional: true, add: 'Name the form'},
+  first:    {ask: 'Does anything come before the application?', ph: 'anything first', opts: ['an optional interest form', 'an optional info session', 'a required info session'], optional: true, add: 'Something before applying'},
+  rhythm:   {ask: 'How often does it run?', ph: 'how often?', opts: ['once a year', 'twice a year', 'several times a year', 'every month', 'any time (rolling)', 'one time only']},
+  deadline: {ask: 'When do applications close?', ph: 'when?', opts: ['no deadline (rolling)']},
+  size:     {ask: 'How many are chosen each time?', ph: 'how many?', opts: []},
+  decider:  {ask: 'Who makes the final call?', ph: 'who?', opts: ['the program coordinator', 'the program manager', 'a selection committee', 'staff and community reviewers together']}
+};
+const GUIDE = {
+  sentence: 'Read it out loud. Ask: “Is anything in here off?” Tap any underlined part to fix it.',
+  steps: 'Ask: “After someone applies, what is the first thing your team does?” Then go left to right: who does it, how they decide, and what can happen next.',
+  checks: 'Ask: “Is there any answer on the form that is an automatic no?”',
+  after: 'Ask: “Once you say yes, what happens before they start?” Keep it short. This gets its own session in the next phase.',
+  questions: 'Only if there is time. These can be answered later.',
+  confirm: 'Ask: “If the new system worked exactly like this, would it fit how you run it?” Then enter their name and confirm.'
+};
+
+/* ------------------------------------------------------------------ helpers */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+const clone = o => JSON.parse(JSON.stringify(o));
+const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+const now = () => new Date().toISOString();
+const store = (kind) => ({
+  get(k) { try { return JSON.parse(window[kind].getItem(k) || 'null'); } catch (e) { return null; } },
+  set(k, v) { try { window[kind].setItem(k, JSON.stringify(v)); } catch (e) {} },
+  del(k) { try { window[kind].removeItem(k); } catch (e) {} }
+});
+const LS = store('localStorage'), SS = store('sessionStorage');
+const KEY = 'bitir:v1:';
+function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('on'), 2600); }
+async function copyText(text, done) {
+  try { await navigator.clipboard.writeText(text); toast(done); }
+  catch (e) {
+    const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+    let ok = false; try { ok = document.execCommand('copy'); } catch (x) {} ta.remove(); toast(ok ? done : 'Copy was blocked here. Use the download instead.');
+  }
+}
+const fmtDate = iso => { try { const s = String(iso || ''); const d = new Date(/^\d{4}-\d{2}-\d{2}$/.test(s) ? s + 'T12:00:00' : s); return isNaN(d) ? '' : d.toLocaleDateString(undefined, {month: 'short', day: 'numeric'}); } catch (e) { return ''; } };
+const uid = p => p + Math.random().toString(36).slice(2, 7);
+const ARROW = '<span class="arr" aria-hidden="true"><svg viewBox="0 0 22 14"><path d="M1 7h18M13 1l7 6-7 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+
+/* ------------------------------------------------------------------ state */
+let DATA = null, MODE = 'preview', CODE = '', LATEST = {}, SHEET = '';
+const WORK = {};
+let ui = Object.assign({guide: false, team: false}, LS.get(KEY + 'ui') || {});
+ui.edit = null; ui.arm = null;
+const saveUi = () => LS.set(KEY + 'ui', {guide: ui.guide, team: ui.team});
+
+function draftOf(id) { return DATA.programs.find(p => p.id === id); }
+function getWork(id) {
+  if (WORK[id]) return WORK[id];
+  const draft = draftOf(id); if (!draft) return null;
+  const local = LS.get(KEY + 'prog:' + id);
+  const remote = LATEST[id];
+  let w;
+  if (remote && remote.profile && (!local || String(remote.at) > String(local.meta.savedAt || ''))) {
+    w = {p: remote.profile, meta: {status: remote.kind === 'confirmed' ? 'confirmed' : 'progress', savedAt: remote.at, at: remote.at, confirmedBy: remote.confirmedBy || '', role: remote.role || ''}};
+  } else if (local && local.p) w = local;
+  else w = {p: clone(draft), meta: {status: 'draft'}};
+  WORK[id] = w; return w;
+}
+let saveT = null;
+function touch(id, rerender = true) {
+  const w = getWork(id), m = w.meta;
+  if (m.status !== 'progress') w.meta = {status: 'progress', pendingName: m.pendingName || m.confirmedBy || '', pendingRole: m.pendingRole || m.role || '',
+    wasConfirmed: m.status === 'confirmed' ? {by: m.confirmedBy, at: m.at} : m.wasConfirmed};
+  w.meta.savedAt = now();
+  clearTimeout(saveT); saveT = setTimeout(() => LS.set(KEY + 'prog:' + id, {p: w.p, meta: w.meta, draftVersion: DATA.version}), 150);
+  if (rerender) render();
+}
+function triage() { return LS.get(KEY + 'triage') || {signups: {}, dormant: {}, sentAt: ''}; }
+
+/* ------------------------------------------------------------------ program helpers */
+function confOf(x) { if (!x) return 'unk'; if (x.ok) return 'ok'; if (x.conf === 'doc') return 'doc'; if (x.conf === 'guess') return 'guess'; return 'unk'; }
+function basicShown(p, k) { const b = p.basics[k]; if (!b) return false; return !!b.v || (b.conf === 'unknown' && !BASICS[k].optional); }
+function reviewables(p) {
+  const items = [];
+  Object.keys(BASICS).forEach(k => { if (basicShown(p, k)) items.push(p.basics[k]); });
+  return items.concat(p.steps, p.checks, p.after);
+}
+function progressOf(p) { const it = reviewables(p); return {done: it.filter(x => x.ok).length, total: it.length}; }
+function stepWho(s) {
+  const l = (s.who || []).map(w => WHO[w] || w).map((x, i) => i && !/^BiT/.test(x) ? x.charAt(0).toLowerCase() + x.slice(1) : x);
+  return l.length > 1 ? l.slice(0, -1).join(', ') + ' and ' + l[l.length - 1] : (l[0] || 'Someone');
+}
+function stepHow(s) {
+  const j = JUDGE[s.judge] || JUDGE.unknown;
+  if (s.judge === 'scored') {
+    const n = s.groups ? s.groups.map(g => `${g.items.length} (${g.label.replace(/ track$/, '')})`).join(' or ') : (s.criteria || []).length;
+    const sc = s.scale ? `, 1 to ${s.scale}` : '';
+    return n ? `Scores ${n} questions${sc}` : `Scores the ${s.kind === 'interview' ? 'interview' : 'application'}${sc}`;
+  }
+  return j.label;
+}
+function outsOf(s, last) { return (s.outcomes || []).map(o => ({o, label: o === 'advance' && last ? OUT.advance.last : (OUT[o] || {}).label || o})); }
+function patternOf(p) {
+  // The knock-out runs at submission, so it does not count toward the pattern.
+  const seq = p.steps.filter(s => s.kind !== 'check').map(s => s.kind);
+  const hasCheck = p.steps.some(s => s.kind === 'check');
+  const hit = PATTERNS.find(x => x.seq.length === seq.length && x.seq.every((k, i) => k === seq[i]));
+  return {hit: hit ? hit.name : '', seq, suggested: `${p.kind} · ${seq.length}-stage${hasCheck ? ' + knock-out' : ''}`};
+}
+function statusPath(p) {
+  const mids = [];
+  p.steps.forEach(s => { const v = (KINDS[s.kind] || KINDS.other).status; if (!['Submitted', 'Selected'].includes(v) && !mids.includes(v)) mids.push(v); });
+  return {mids, waitlist: p.steps.some(s => (s.outcomes || []).includes('waitlist'))};
+}
+function sentencePlain(p) {
+  const b = p.basics, v = k => (b[k] && b[k].v) || `[${BASICS[k].ph}]`;
+  let s = `People get into ${p.name} by ${v('entry')}`;
+  if (b.form && b.form.v) s += `, using ${b.form.v}`;
+  if (b.first && b.first.v) s += `, often after ${b.first.v}`;
+  s += `. It runs ${v('rhythm')}, and applications close ${v('deadline')}. ${cap(v('size'))} are chosen, and the final call is made by ${v('decider')}.`;
+  return s;
+}
+function stepLine(s, i, n) {
+  const outs = outsOf(s, i === n - 1).map(x => x.label).join(', ');
+  return `${s.name}: ${stepWho(s)}. ${stepHow(s)}.${s.scheduled ? ' The applicant books a time.' : ''} Can lead to: ${outs || 'not set'}.`;
+}
+
+/* ------------------------------------------------------------------ diff against our draft */
+function changesOf(p) {
+  const d = draftOf(p.id), out = [];
+  Object.keys(BASICS).forEach(k => { const a = (d.basics[k] || {}).v || '', b = (p.basics[k] || {}).v || ''; if (a !== b) out.push(`${BASICS[k].ask} “${a || 'blank'}” → “${b || 'not known'}”`); });
+  const dSteps = Object.fromEntries(d.steps.map(s => [s.id, s]));
+  p.steps.forEach((s, i) => {
+    const o = dSteps[s.id];
+    if (!o) { out.push(`Added step ${i + 1}: ${s.name}`); return; }
+    const f = [];
+    if (o.name !== s.name) f.push(`name “${o.name}” → “${s.name}”`);
+    if (o.kind !== s.kind) f.push(`type ${KINDS[o.kind].label} → ${(KINDS[s.kind] || KINDS.other).label}`);
+    if ((o.who || []).join() !== (s.who || []).join()) f.push(`who: ${stepWho(o)} → ${stepWho(s)}`);
+    if (o.judge !== s.judge || String(o.scale || '') !== String(s.scale || '')) f.push(`how: ${stepHow(o)} → ${stepHow(s)}`);
+    if (JSON.stringify(o.criteria || []) !== JSON.stringify(s.criteria || []) || JSON.stringify(o.groups || []) !== JSON.stringify(s.groups || [])) f.push('questions they score changed');
+    if ((o.outcomes || []).join() !== (s.outcomes || []).join()) f.push(`outcomes: ${(o.outcomes || []).map(x => OUT[x].label).join(', ')} → ${(s.outcomes || []).map(x => OUT[x].label).join(', ')}`);
+    if (!!o.scheduled !== !!s.scheduled) f.push(s.scheduled ? 'applicant books a time' : 'no booking');
+    if ((o.note || '') !== (s.note || '')) f.push('note changed');
+    if (f.length) out.push(`Step “${s.name}”: ${f.join('; ')}`);
+  });
+  const ids = p.steps.map(s => s.id), dIds = d.steps.map(s => s.id);
+  d.steps.forEach(s => { if (!ids.includes(s.id)) out.push(`Removed step: ${s.name}`); });
+  const kept = dIds.filter(x => ids.includes(x)), order = ids.filter(x => dIds.includes(x));
+  if (kept.join() !== order.join()) out.push('Steps were put in a different order');
+  const dC = Object.fromEntries(d.checks.map(c => [c.id, c]));
+  p.checks.forEach(c => { const o = dC[c.id]; if (!o) out.push(`Added rule: ${c.text} (${EFFECT[c.effect]})`); else { if (o.text !== c.text) out.push(`Rule reworded: “${o.text}” → “${c.text}”`); if (o.effect !== c.effect) out.push(`Rule “${c.text}”: ${EFFECT[o.effect]} → ${EFFECT[c.effect]}`); } });
+  d.checks.forEach(c => { if (!p.checks.find(x => x.id === c.id)) out.push(`Removed rule: ${c.text}`); });
+  const dA = Object.fromEntries(d.after.map(a => [a.id, a]));
+  p.after.forEach(a => { const o = dA[a.id]; if (!o) out.push(`Added after selection: ${a.text}`); else if (o.text !== a.text) out.push(`After selection: “${o.text}” → “${a.text}”`); });
+  d.after.forEach(a => { if (!p.after.find(x => x.id === a.id)) out.push(`Removed after selection: ${a.text}`); });
+  return out;
+}
+function openOf(p) {
+  const out = [];
+  Object.keys(BASICS).forEach(k => { const b = p.basics[k]; if (b && !BASICS[k].optional && !b.v) out.push(BASICS[k].ask); });
+  p.steps.forEach(s => { if (s.judge === 'unknown') out.push(`How “${s.name}” decides`); if (!(s.who || []).length) out.push(`Who does “${s.name}”`); });
+  p.checks.forEach(c => { if (c.effect === 'unknown') out.push(`Does “${c.text}” rule someone out?`); });
+  p.questions.forEach(q => { if (!(q.answer || '').trim()) out.push(q.q); });
+  return out;
+}
+function answersOf(p) { return p.questions.filter(q => (q.answer || '').trim()).map(q => `${q.q} — ${q.answer.trim()}`); }
+
+/* ------------------------------------------------------------------ export for the data dictionaries */
+function modelOf(p) {
+  const pat = patternOf(p), sp = statusPath(p);
+  const stages = p.steps;
+  const knock = p.steps.find(s => s.kind === 'check');
+  const IK = {entry: 'howPeopleGetIn', form: 'applicationForm', first: 'beforeApplying', rhythm: 'howOften', deadline: 'applicationsClose', size: 'howManyChosen', decider: 'finalCall'};
+  return {
+    program: p.name, programId: p.id, programType: p.kind, draftVersion: DATA.version,
+    intake: Object.fromEntries(Object.keys(BASICS).map(k => { const b = p.basics[k] || {}; return [IK[k], {value: b.v || '', confidence: b.ok ? 'confirmed' : (b.conf || 'unknown')}]; })),
+    knockOut: {
+      howChecked: knock ? `${(JUDGE[knock.judge] || JUDGE.unknown).model} by ${stepWho(knock)} (stage ${p.steps.indexOf(knock) + 1})` : p.checks.length ? 'At submission, as a knock-out review (Nov 19 decision)' : 'None found',
+      rules: p.checks.map(c => ({rule: c.text, effect: c.effect === 'disqualifies' ? 'Disqualifies' : c.effect === 'noted' ? 'Recorded only' : 'To confirm'}))
+    },
+    programWorkflow: {program: p.name, cohort: '(blank: program default)', workflow: pat.hit || pat.suggested},
+    workflow: {
+      name: pat.hit || pat.suggested, matchesExisting: !!pat.hit,
+      stages: stages.map((s, i) => ({
+        sequence: i + 1, name: s.name, stageType: (KINDS[s.kind] || KINDS.other).model,
+        statusShown: (KINDS[s.kind] || KINDS.other).status,
+        rubric: s.judge === 'scored' ? (s.rubric || `${p.name} ${s.name}`) : 'None',
+        rubricType: (JUDGE[s.judge] || JUDGE.unknown).model, scaleMax: s.scale || null,
+        criteria: s.groups ? null : (s.criteria || []), criteriaByTrack: s.groups || null,
+        reviewerRoles: (s.who || []).map(w => WHO[w] || w), reviewersPerApplication: s.count || null,
+        decisions: (s.outcomes || []).map(o => OUT[o].model), applicantBooksTime: !!s.scheduled, note: s.note || ''
+      }))
+    },
+    applicationStatusPath: ['Incomplete', 'Submitted'].concat(sp.mids, ['Selected', 'Confirmed']),
+    sideAndExits: (sp.waitlist ? ['Waitlisted'] : []).concat(['Not Selected', 'Withdrawn']),
+    postSelection: p.after.map(a => a.text),
+    statusWordsToday: p.today || [],
+    openQuestions: p.questions.map(q => ({question: q.q, answer: (q.answer || '').trim()}))
+  };
+}
+function markdownOf(p) {
+  const m = modelOf(p), L = [`# ${p.name}: intake and review`, '', sentencePlain(p), '', `Workflow: **${m.workflow.name}**${m.workflow.matchesExisting ? ' (existing)' : ' (new pattern)'}`, ''];
+  L.push('| # | Stage | Stage type | Status shown | Rubric | Who | Decisions |', '|---|---|---|---|---|---|---|');
+  m.workflow.stages.forEach(s => L.push(`| ${s.sequence} | ${s.name} | ${s.stageType} | ${s.statusShown} | ${s.rubric} (${s.rubricType}${s.scaleMax ? ', 1–' + s.scaleMax : ''}) | ${s.reviewerRoles.join(', ')} | ${s.decisions.join(', ')} |`));
+  L.push('', '## Knock-out rules', `How checked: ${m.knockOut.howChecked}`); m.knockOut.rules.forEach(r => L.push(`- ${r.rule} (${r.effect})`));
+  L.push('', '## After selection'); m.postSelection.forEach(a => L.push(`- ${a}`));
+  L.push('', '## Open questions'); m.openQuestions.forEach(q => L.push(`- ${q.question}${q.answer ? ' — **' + q.answer + '**' : ''}`));
+  return L.join('\n');
+}
+
+/* ------------------------------------------------------------------ rendering: shell */
+function renderToggles() {
+  $('#toggles').innerHTML = DATA ? `
+    <button type="button" class="tog" data-act="toggle-guide" aria-pressed="${ui.guide}"><span class="dot"></span>Session notes</button>
+    <button type="button" class="tog" data-act="toggle-team" aria-pressed="${ui.team}"><span class="dot"></span>Team view</button>` : '';
+}
+function legend() {
+  return `<div class="legend" aria-label="What the marks mean"><span><i class="lg"></i>From your documents</span><span><i class="lg g"></i>Our best guess</span><span><i class="lg u">?</i>We could not find it</span><span><i class="lg k">✓</i>You confirmed it</span></div>`;
+}
+const guideBox = (txt) => ui.guide ? `<div class="ask"><b>ASK</b><span>${esc(txt)}</span></div>` : '';
+
+function render() {
+  if (!DATA) return;
+  renderToggles();
+  const focusId = document.activeElement && document.activeElement.id;
+  const id = (location.hash || '').slice(1);
+  const p = id && draftOf(id);
+  $('#app').innerHTML = p ? programHTML(id) : homeHTML();
+  document.title = p ? `${p.name} · BiT Intake & Review` : 'BiT Intake & Review';
+  if (focusId) { const el = document.getElementById(focusId); if (el) el.focus({preventScroll: true}); }
+}
+
+/* ------------------------------------------------------------------ home: the program grid */
+function homeHTML() {
+  const progs = DATA.programs;
+  const states = progs.map(p => getWork(p.id));
+  const confirmed = states.filter(w => w.meta.status === 'confirmed').length;
+  const tri = triage();
+  let h = `<section class="card hero">
+    <p class="kicker">${esc(DATA.org)} · drafts from ${esc(fmtDate(DATA.version))}</p>
+    <h1>How each program picks its people</h1>
+    <p class="lede">We read what Build in Tulsa has shared: process maps, application forms, trackers and notes. For each program, this is what we think happens between someone applying and being picked. Open a program, fix anything that is off, and confirm it.</p>
+    <ul class="facts"><li><em>Programs to confirm</em>${progs.length}</li><li><em>Confirmed</em>${confirmed} of ${progs.length}</li><li><em>Saving to</em>${MODE === 'hosted' ? (SHEET === 'ok' ? 'Team Google Sheet' : 'This device (sheet not connected)') : 'This device only (preview)'}</li></ul>
+    <div class="meter" aria-hidden="true"><i style="width:${Math.round(confirmed / progs.length * 100)}%"></i></div>
+    ${legend()}
+  </section>`;
+  if (ui.guide) h += `<div class="ask"><b>SESSION</b><div><strong>Running the check-in</strong><ol>
+    <li>Open with: “We already read what you shared. This is us showing it back. Tell us where we got it wrong.”</li>
+    <li>One program at a time, about 10 to 15 minutes each. Start with the ones they know best.</li>
+    <li>Spend the time on dashed parts (our guesses) and “?” parts (things we could not find). Solid parts came from their own documents.</li>
+    <li>Tap anything to change it. Nothing is final until they press Confirm.</li>
+    <li>If they don't know, leave it as “?” and move on. Open questions can be answered later.</li></ol></div></div>`;
+  h += `<section class="sec"><div class="shd"><div class="t"><span class="k">${progs.length} programs with an application</span><h3>Programs</h3><p>Steps in blue came from BiT's documents. Amber steps are our guesses.</p></div></div>
+    <div class="plist">
+    <div class="phead" aria-hidden="true"><span>Program</span><span>How people get in</span><span>How often</span><span>Steps</span><span>Final call</span><span>Status</span></div>`;
+  progs.forEach(d => {
+    const w = getWork(d.id), p = w.p, b = p.basics;
+    const val = k => b[k] && b[k].v ? esc(cap(b[k].v)) : '<span class="q-mark">?</span>';
+    const st = w.meta.status === 'confirmed' ? `<span class="pill done">Confirmed ${esc(fmtDate(w.meta.at))}</span>` : w.meta.status === 'progress' ? `<span class="pill prog">${w.meta.wasConfirmed ? 'Changed' : 'In progress'}</span>` : `<span class="pill draft">Draft</span>`;
+    const chev = p.steps.map(s => `<span class="${s.conf === 'doc' || s.ok ? '' : 'g'}">${esc((KINDS[s.kind] || KINDS.other).short)}</span>`).join('');
+    h += `<button type="button" class="prow" data-act="open" data-id="${esc(d.id)}" aria-label="Open ${esc(p.name)}">
+      <span class="nm"><b>${esc(p.name)} ${d.template ? '<span class="pill tpl">Template</span>' : ''}</b><span>${esc(p.kind)}</span></span>
+      <span class="cell"><span class="lab">Gets in by</span>${val('entry')}</span>
+      <span class="cell"><span class="lab">How often</span>${val('rhythm')}</span>
+      <span class="cell steps"><span class="lab">Steps</span><span class="mchev">${chev}</span></span>
+      <span class="cell"><span class="lab">Final call</span>${val('decider')}</span>
+      <span class="cell">${st}</span></button>`;
+  });
+  h += `</div></section>`;
+  // triage
+  h += `<section class="sec"><div class="shd"><div class="t"><span class="k">Quick check</span><h3>Forms that don't seem to lead to a review</h3><p>We think these are sign-ups. If someone actually picks people from one of them, mark it and we'll add it to the programs above.</p></div></div>
+    ${ui.guide ? guideBox('Read the names quickly. Ask: “Does anyone review these, or is it just a sign-up?”') : ''}
+    <div class="tri">${DATA.signups.map(s => {
+      const a = tri.signups[s.id] || ''; const btn = (v, l, c) => `<button type="button" class="${c}" data-act="tri" data-g="signups" data-id="${esc(s.id)}" data-v="${v}" aria-pressed="${a === v}">${l}</button>`;
+      return `<div class="trow"><div><b>${esc(s.name)}</b><p>${esc(s.what)}</p></div><div class="seg" role="group" aria-label="${esc(s.name)}">${btn('signup', 'Sign-up only', 'yes')}${btn('reviewed', 'Someone reviews these', 'no')}${btn('unsure', 'Not sure', '')}</div></div>`;
+    }).join('')}</div></section>`;
+  h += `<section class="sec"><div class="shd"><div class="t"><span class="k">Quick check</span><h3>Named in BiT's documents, no current form</h3><p>We found these in trackers and notes but no 2026 application. Which are still running?</p></div></div>
+    ${ui.guide ? guideBox('Ask: “Is this still running? If so, does BiT pick the people, or a partner?”') : ''}
+    <div class="tri">${DATA.dormant.map(s => {
+      const a = tri.dormant[s.id] || ''; const btn = (v, l, c) => `<button type="button" class="${c}" data-act="tri" data-g="dormant" data-id="${esc(s.id)}" data-v="${v}" aria-pressed="${a === v}">${l}</button>`;
+      return `<div class="trow"><div><b>${esc(s.name)}</b><p>${esc(s.what)}</p></div><div class="seg" role="group" aria-label="${esc(s.name)}">${btn('bit', 'Running, BiT picks', 'yes')}${btn('partner', 'Running, partner picks', '')}${btn('retired', 'Retired', 'no')}${btn('notprogram', 'Not a program', '')}</div></div>`;
+    }).join('')}</div>
+    <div class="row" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button type="button" class="btn dark" data-act="tri-send">Send these answers</button><span class="status" id="triStatus">${tri.sentAt ? 'Last sent ' + esc(fmtDate(tri.sentAt)) : ''}</span></div>
+  </section>`;
+  h += sourcesHTML(Object.keys(DATA.sources));
+  return h;
+}
+
+/* ------------------------------------------------------------------ program page */
+function programHTML(id) {
+  const w = getWork(id), p = w.p, d = draftOf(id), pr = progressOf(p);
+  let h = `<nav class="crumb"><button type="button" class="btn ghost sm" data-act="home">← All programs</button><span>${esc(p.kind)}</span></nav>
+  <section class="card hero">
+    <p class="kicker">Here's what we think ${d.template ? '<span class="pill tpl">Template program</span>' : ''} ${w.meta.status === 'confirmed' ? `<span class="pill done">Confirmed by ${esc(w.meta.confirmedBy)} · ${esc(fmtDate(w.meta.at))}</span>` : w.meta.status === 'progress' ? `<span class="pill prog">${w.meta.wasConfirmed ? 'Changed since confirmed' : 'In progress'}</span>` : ''}</p>
+    <h2>${esc(p.name)}</h2>
+    <p class="lede">${esc(p.short)}${p.note ? ' ' + esc(p.note) : ''}</p>
+    <ul class="facts"><li><em>Looked at</em>${pr.done} of ${pr.total} parts</li><li><em>Steps</em>${p.steps.length}</li><li><em>Open questions</em>${p.questions.filter(q => !(q.answer || '').trim()).length}</li></ul>
+    ${legend()}
+  </section>`;
+  if (ui.team) h += teamHTML(p);
+  // 1. sentence
+  h += `<section class="sec" id="sec-sentence"><div class="shd"><div class="t"><span class="k">In a sentence</span><h3>Getting in</h3></div></div>
+    ${guideBox(GUIDE.sentence)}
+    <div class="card"><p class="sentence">${sentenceHTML(p)}</p>
+    ${addsHTML(p)}</div>
+    ${ui.edit && ui.edit.type === 'basic' ? basicEditor(p, ui.edit.key) : ''}
+  </section>`;
+  // 2. steps picture
+  const sp = statusPath(p);
+  h += `<section class="sec" id="sec-steps"><div class="shd"><div class="t"><span class="k">${p.steps.length} ${p.steps.length === 1 ? 'step' : 'steps'}</span><h3>How someone gets picked</h3><p>From the moment someone applies to the moment they are selected. Tap a step to change it.</p></div></div>
+    ${guideBox(GUIDE.steps)}
+    <div class="card flowwrap"><div class="flow">
+      <span class="node">${esc(p.basics.entry && /nominat/.test(p.basics.entry.v) ? 'Nominated' : 'Applies')}</span>${ARROW}
+      ${p.steps.map((s, i) => stepCard(p, s, i) + ARROW).join('')}
+      <span class="node end">Selected</span>
+      <button type="button" class="addstep" data-act="step-add" aria-label="Add a step">+</button>
+    </div>
+    <div class="exits" style="margin-top:12px"><span>Ways out</span><span class="pill ns">Not selected</span><span class="pill wd">Withdrawn, any time</span>${sp.waitlist ? '<span class="pill side">Waitlisted</span>' : ''}</div>
+    ${(p.today || []).length ? `<div class="today" style="margin-top:10px"><span class="small">Words in your trackers today:</span>${p.today.map(t => `<span class="w">${esc(t)}</span>`).join('')}</div>` : ''}
+    </div>
+    ${ui.edit && ui.edit.type === 'step' ? stepEditor(p, ui.edit.id) : ''}
+  </section>`;
+  // 3. rules
+  h += `<section class="sec" id="sec-checks"><div class="shd"><div class="t"><span class="k">Before anyone reviews</span><h3>What rules someone out</h3><p>Answers or facts that mean a definite no, and ones that are only noted.</p></div></div>
+    ${guideBox(GUIDE.checks)}
+    <div class="list">${p.checks.length ? p.checks.map(c => checkRow(p, c)).join('') : '<div class="li empty">Nothing found. Add a rule if there is one.</div>'}</div>
+    <div><button type="button" class="btn sm" data-act="check-add">+ Add a rule</button></div>
+  </section>`;
+  // 4. after
+  h += `<section class="sec" id="sec-after"><div class="shd"><div class="t"><span class="k">Next phase</span><h3>After someone is picked</h3><p>A quick look only. We'll go through this properly when we map participation.</p></div></div>
+    ${guideBox(GUIDE.after)}
+    <div class="list">${p.after.length ? p.after.map((a, i) => afterRow(p, a, i)).join('') : '<div class="li empty">Nothing written down yet.</div>'}</div>
+    <div><button type="button" class="btn sm" data-act="after-add">+ Add what happens next</button></div>
+  </section>`;
+  // 5. questions
+  h += `<section class="sec" id="sec-q"><div class="shd"><div class="t"><span class="k">Only you can answer these</span><h3>Open questions</h3><p>Nobody has written these down. Answer what you can; the rest can wait.</p></div></div>
+    ${guideBox(GUIDE.questions)}
+    <div class="list">${p.questions.map(q => `<div class="qa"><label for="qa-${esc(q.id)}"><b>${esc(q.q)}</b></label>${q.why ? `<small>${esc(q.why)}</small>` : ''}<textarea id="qa-${esc(q.id)}" data-bind="q:${esc(q.id)}" placeholder="Answer, or leave blank">${esc(q.answer || '')}</textarea></div>`).join('')}</div>
+  </section>`;
+  // 6. confirm
+  h += confirmHTML(p, w);
+  h += sourcesHTML(collectSources(p));
+  return h;
+}
+function sentenceHTML(p) {
+  const chip = (k, capFirst) => {
+    const b = p.basics[k], conf = confOf(b), open = ui.edit && ui.edit.type === 'basic' && ui.edit.key === k;
+    const raw = b && b.v ? b.v : BASICS[k].ph, txt = capFirst ? cap(raw) : raw;
+    return `<button type="button" id="chip-${k}" class="chip ${b && b.v ? conf : 'unk'}" data-act="chip" data-k="${k}" aria-expanded="${open}" title="${esc(BASICS[k].ask)}">${esc(txt)}</button>`;
+  };
+  const b = p.basics;
+  let s = `People get into <strong>${esc(p.name)}</strong> by ${chip('entry')}`;
+  if (b.form && b.form.v) s += `, using ${chip('form')}`;
+  if (b.first && b.first.v) s += `, often after ${chip('first')}`;
+  s += `. It runs ${chip('rhythm')}, and applications close ${chip('deadline')}. ${chip('size', true)} ${b.size && b.size.v ? 'are' : 'people are'} chosen, and the final call is made by ${chip('decider')}.`;
+  return s;
+}
+function addsHTML(p) {
+  const opt = Object.keys(BASICS).filter(k => BASICS[k].optional && !(p.basics[k] && p.basics[k].v));
+  if (!opt.length) return '';
+  return `<div class="adds" style="margin-top:10px">${opt.map(k => `<button type="button" class="btn ghost sm" data-act="chip" data-k="${k}">+ ${esc(BASICS[k].add)}</button>`).join('')}</div>`;
+}
+function srcLine(x) {
+  if (!x || !(x.src || []).length) return '';
+  return `<span class="src">From: ${x.src.map(s => esc((DATA.sources[s] || {}).title || s)).join('; ')}</span>`;
+}
+function basicEditor(p, k) {
+  const b = p.basics[k] || {v: '', conf: 'unknown', src: []}, B = BASICS[k];
+  return `<div class="editor" role="group" aria-labelledby="ed-h">
+    <h4 id="ed-h">${esc(B.ask)}</h4>
+    ${b.note ? `<p class="why">${esc(b.note)}</p>` : ''}
+    ${B.opts.length ? `<div class="opts">${B.opts.map(o => `<button type="button" class="opt" data-act="basic-opt" data-k="${k}" data-v="${esc(o)}" aria-pressed="${b.v === o}">${esc(o)}</button>`).join('')}</div>` : ''}
+    <label class="f" for="basic-in">In your words<input type="text" id="basic-in" value="${esc(b.v)}" placeholder="${esc(B.ph)}"></label>
+    <div class="row">
+      ${b.v ? `<button type="button" class="btn okb" data-act="basic-ok" data-k="${k}">✓ That's right</button>` : ''}
+      <button type="button" class="btn pri" data-act="basic-save" data-k="${k}">Save</button>
+      <button type="button" class="btn" data-act="basic-unknown" data-k="${k}">${B.optional ? 'Remove' : "We don't know"}</button>
+      <button type="button" class="btn ghost" data-act="close">Close</button>
+    </div>
+    ${srcLine(b)}
+  </div>`;
+}
+function stepCard(p, s, i) {
+  const last = i === p.steps.length - 1, conf = s.ok ? 'ok' : s.conf === 'doc' ? '' : 'guess';
+  const sel = ui.edit && ui.edit.type === 'step' && ui.edit.id === s.id;
+  const k = KINDS[s.kind] || KINDS.other;
+  const team = ui.team ? `<div class="team">stage_type = ${esc(k.model)} · status → ${esc(k.status)}<br>${esc(s.judge === 'scored' ? (s.rubric || 'new rubric') : 'no rubric')} · ${esc((JUDGE[s.judge] || JUDGE.unknown).model)}${s.count ? ' · ×' + esc(s.count) : ''}</div>` : '';
+  return `<div class="stepc ${conf} ${sel ? 'sel' : ''}">
+    <div class="n"><span>Step ${i + 1} · ${esc(k.label)}</span><span>${s.ok ? '✓' : s.conf === 'doc' ? '' : 'guess'}</span></div>
+    <h4 data-live="name-${esc(s.id)}">${esc(s.name)}</h4>
+    <p class="who">${esc(stepWho(s))}${s.count ? ` <span class="small">(${esc(s.count)} ${s.count == 1 ? 'person files the review' : 'people'})</span>` : ''}</p>
+    <p class="how">${esc(stepHow(s))}</p>
+    ${s.scheduled ? '<p class="cal">The applicant books a time</p>' : ''}
+    <div class="outs">${outsOf(s, last).map(x => `<span class="${x.o === 'decline' ? 'dec' : x.o === 'advance' ? 'adv' : ''}">${esc(x.label)}</span>`).join('')}</div>
+    ${team}
+    <div class="acts">
+      <button type="button" class="btn sm ${s.ok ? 'okb' : ''}" data-act="step-ok" data-id="${esc(s.id)}" aria-pressed="${!!s.ok}">${s.ok ? '✓ Right' : "That's right"}</button>
+      <button type="button" class="btn sm" data-act="step-open" data-id="${esc(s.id)}" aria-expanded="${sel}">Change</button>
+    </div>
+  </div>`;
+}
+function stepEditor(p, id) {
+  const i = p.steps.findIndex(s => s.id === id); if (i < 0) return '';
+  const s = p.steps[i], sid = esc(s.id);
+  const crit = s.groups ? s.groups.map((g, gi) => `<label class="f" for="st-g${gi}">${esc(g.label)}: questions they score <span class="hint">one per line</span><textarea id="st-g${gi}" data-bind="stepgroup:${sid}:${gi}">${esc(g.items.join('\n'))}</textarea></label>`).join('')
+    : `<label class="f" for="st-crit">Questions they score <span class="hint">one per line</span><textarea id="st-crit" data-bind="step:${sid}:criteria">${esc((s.criteria || []).join('\n'))}</textarea></label>`;
+  const armed = ui.arm === 'del-' + s.id;
+  return `<div class="editor" role="group" aria-labelledby="st-h">
+    <h4 id="st-h">Step ${i + 1}: <span data-live="name2-${sid}">${esc(s.name)}</span></h4>
+    ${s.note ? `<p class="why">${esc(s.note)}</p>` : ''}
+    <div class="grid2">
+      <label class="f" for="st-name">What you call this step<input type="text" id="st-name" data-bind="step:${sid}:name" value="${esc(s.name)}"></label>
+      <label class="f" for="st-kind">What kind of step it is<select id="st-kind" data-bind="step:${sid}:kind">${Object.entries(KINDS).map(([k, v]) => `<option value="${k}"${s.kind === k ? ' selected' : ''}>${esc(v.label)}</option>`).join('')}</select></label>
+    </div>
+    <div class="f"><span style="font-size:12.5px;font-weight:650">Who does it</span><div class="opts">${Object.entries(WHO).map(([k, v]) => `<button type="button" class="opt" data-act="step-who" data-id="${sid}" data-v="${k}" aria-pressed="${(s.who || []).includes(k)}">${esc(v)}</button>`).join('')}</div></div>
+    <div class="grid2">
+      <label class="f" for="st-judge">How they decide<select id="st-judge" data-bind="step:${sid}:judge">${Object.entries(JUDGE).map(([k, v]) => `<option value="${k}"${s.judge === k ? ' selected' : ''}>${esc(v.label)}</option>`).join('')}</select></label>
+      <label class="f" for="st-count">How many people fill in a review for each applicant <span class="hint">leave blank if unsure</span><input type="number" id="st-count" min="1" max="20" data-bind="step:${sid}:count" value="${esc(s.count || '')}"></label>
+    </div>
+    ${s.judge === 'scored' ? `<label class="f" for="st-scale">Score each question from 1 to<select id="st-scale" data-bind="step:${sid}:scale"><option value="">not sure</option>${[3, 4, 5, 10].map(n => `<option value="${n}"${String(s.scale) === String(n) ? ' selected' : ''}>${n}</option>`).join('')}</select></label>${crit}` : ''}
+    <div class="f"><span style="font-size:12.5px;font-weight:650">What can happen after this step</span><div class="opts">${Object.entries(OUT).map(([k, v]) => `<button type="button" class="opt" data-act="step-out" data-id="${sid}" data-v="${k}" aria-pressed="${(s.outcomes || []).includes(k)}">${esc(k === 'advance' && i === p.steps.length - 1 ? v.last : v.label)}</button>`).join('')}</div></div>
+    <label class="f" for="st-sched" style="flex-direction:row;align-items:center;gap:8px"><input type="checkbox" id="st-sched" data-bind="step:${sid}:scheduled"${s.scheduled ? ' checked' : ''}> The applicant books a time for this step</label>
+    <label class="f" for="st-note">Notes<textarea id="st-note" data-bind="step:${sid}:note">${esc(s.note || '')}</textarea></label>
+    <div class="row">
+      <button type="button" class="btn pri" data-act="close">Done</button>
+      <button type="button" class="btn" data-act="step-move" data-id="${sid}" data-dir="-1"${i === 0 ? ' disabled' : ''}>Move earlier</button>
+      <button type="button" class="btn" data-act="step-move" data-id="${sid}" data-dir="1"${i === p.steps.length - 1 ? ' disabled' : ''}>Move later</button>
+      <button type="button" class="btn warn" data-act="step-del" data-id="${sid}">${armed ? 'Click again to remove' : 'Remove step'}</button>
+    </div>
+    ${srcLine(s)}
+  </div>`;
+}
+function checkRow(p, c) {
+  const editing = ui.edit && ui.edit.type === 'check' && ui.edit.id === c.id, cid = esc(c.id);
+  const seg = Object.entries(EFFECT).map(([k, v]) => `<button type="button" class="${k === 'disqualifies' ? 'no' : k === 'noted' ? 'yes' : ''}" data-act="check-effect" data-id="${cid}" data-v="${k}" aria-pressed="${c.effect === k}">${v}</button>`).join('');
+  return `<div class="li"><span class="mk ${confOf(c) === 'unk' ? 'unk' : confOf(c)}" aria-hidden="true"></span>
+    <div class="tx">${editing ? `<input type="text" id="ck-${cid}" data-bind="check:${cid}:text" value="${esc(c.text)}" aria-label="Rule">` : `<span>${esc(c.text)}</span>`}${c.note ? `<small>${esc(c.note)}</small>` : ''}${ui.team ? srcLine(c) : ''}</div>
+    <div class="ctl"><div class="seg" role="group" aria-label="Effect">${seg}</div>
+      <button type="button" class="btn sm ${c.ok ? 'okb' : ''}" data-act="check-ok" data-id="${cid}" aria-pressed="${!!c.ok}">${c.ok ? '✓' : 'Right'}</button>
+      <button type="button" class="btn sm" data-act="${editing ? 'close' : 'check-edit'}" data-id="${cid}">${editing ? 'Done' : 'Edit'}</button>
+      ${editing ? `<button type="button" class="btn sm warn" data-act="check-del" data-id="${cid}">${ui.arm === 'cdel-' + c.id ? 'Click again' : 'Remove'}</button>` : ''}
+    </div></div>`;
+}
+function afterRow(p, a, i) {
+  const editing = ui.edit && ui.edit.type === 'after' && ui.edit.id === a.id, aid = esc(a.id);
+  return `<div class="li"><span class="mk ${confOf(a) === 'unk' ? 'unk' : confOf(a)}" aria-hidden="true"></span>
+    <div class="tx">${editing ? `<input type="text" id="af-${aid}" data-bind="after:${aid}:text" value="${esc(a.text)}" aria-label="What happens">` : `<span>${i + 1}. ${esc(a.text)}</span>`}${ui.team ? srcLine(a) : ''}</div>
+    <div class="ctl"><button type="button" class="btn sm ${a.ok ? 'okb' : ''}" data-act="after-ok" data-id="${aid}" aria-pressed="${!!a.ok}">${a.ok ? '✓' : 'Right'}</button>
+      <button type="button" class="btn sm" data-act="after-move" data-id="${aid}" data-dir="-1" aria-label="Move earlier"${i === 0 ? ' disabled' : ''}>↑</button>
+      <button type="button" class="btn sm" data-act="${editing ? 'close' : 'after-edit'}" data-id="${aid}">${editing ? 'Done' : 'Edit'}</button>
+      ${editing ? `<button type="button" class="btn sm warn" data-act="after-del" data-id="${aid}">${ui.arm === 'adel-' + a.id ? 'Click again' : 'Remove'}</button>` : ''}
+    </div></div>`;
+}
+function confirmHTML(p, w) {
+  const ch = changesOf(p), op = openOf(p), done = w.meta.status === 'confirmed';
+  const n = p.steps.length;
+  return `<section class="sec" id="sec-confirm">
+    ${guideBox(GUIDE.confirm)}
+    <div class="confirm">
+      <h3>Is this how ${esc(p.name)} picks its people today?</h3>
+      ${done ? `<div class="done-banner">✓ Confirmed by ${esc(w.meta.confirmedBy)}${w.meta.role ? ', ' + esc(w.meta.role) : ''} on ${esc(fmtDate(w.meta.at))}</div>` : ''}
+      <div class="summary"><p>${esc(sentencePlain(p))}</p><ol>${p.steps.map((s, i) => `<li>${esc(stepLine(s, i, n))}</li>`).join('')}</ol></div>
+      <div class="cols">
+        <div class="box"><b>Changed from our draft · ${ch.length}</b>${ch.length ? `<ul>${ch.slice(0, 8).map(x => `<li>${esc(x)}</li>`).join('')}${ch.length > 8 ? `<li>and ${ch.length - 8} more</li>` : ''}</ul>` : '<span>Nothing yet.</span>'}</div>
+        <div class="box"><b>Still open · ${op.length}</b>${op.length ? `<ul>${op.slice(0, 6).map(x => `<li>${esc(x)}</li>`).join('')}${op.length > 6 ? `<li>and ${op.length - 6} more</li>` : ''}</ul>` : '<span>Nothing open.</span>'}</div>
+      </div>
+      ${op.length ? `<p class="small">You can confirm with open items. They stay marked as open and can be answered later.</p>` : ''}
+      <div class="cols">
+        <label class="f" for="cf-name">Confirmed by<input type="text" id="cf-name" data-bind="meta:confirmedBy" value="${esc(w.meta.pendingName || w.meta.confirmedBy || '')}" placeholder="Name" autocomplete="name"></label>
+        <label class="f" for="cf-role">Their role<input type="text" id="cf-role" data-bind="meta:role" value="${esc(w.meta.pendingRole || w.meta.role || '')}" placeholder="e.g. Program coordinator"></label>
+      </div>
+      <div class="row" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button type="button" class="btn pri" data-act="confirm">${done ? 'Confirm again' : `Yes, confirm ${esc(p.name)}`}</button>
+        <button type="button" class="btn" data-act="save-progress">Save progress</button>
+        <span class="status" id="cfStatus" role="status"></span>
+      </div>
+    </div>
+  </section>`;
+}
+function collectSources(p) {
+  const s = new Set();
+  const add = x => (x && x.src || []).forEach(v => s.add(v));
+  Object.values(p.basics).forEach(add); p.steps.forEach(add); p.checks.forEach(add); p.after.forEach(add); (p.todaySrc || []).forEach(v => s.add(v));
+  return [...s];
+}
+function sourcesHTML(ids) {
+  if (!ids.length) return '';
+  return `<details class="srcs"><summary>Where this came from (${ids.length})</summary><ul>${ids.map(i => { const s = DATA.sources[i] || {title: i}; return `<li>${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>` : esc(s.title)}</li>`; }).join('')}</ul></details>`;
+}
+
+/* ------------------------------------------------------------------ team view */
+function teamHTML(p) {
+  const pat = patternOf(p), sp = statusPath(p), m = modelOf(p);
+  const flags = [];
+  if (!pat.hit) flags.push(['NEW PATTERN', `No existing workflow matches. Suggested name: “${pat.suggested}”. Name it by pattern, not program.`]);
+  p.steps.forEach(s => { if (['pitch', 'other', 'reference', 'background'].includes(s.kind)) flags.push(['STAGE TYPE', `“${s.name}” uses ${KINDS[s.kind].model}, which is ${KINDS[s.kind].state.toLowerCase()}.`]); if (s.judge === 'unknown') flags.push(['RUBRIC', `“${s.name}”: how they decide is unknown.`]); if (s.groups) flags.push(['RUBRIC', `“${s.name}” scores different questions per track (${s.groups.map(g => g.label).join(', ')}). One rubric per track, or a cohort override?`]); });
+  if (sp.mids.includes('Committee Review')) flags.push(['NAMING', 'Status “Committee Review” has no natural -ing form. Settle the name before automations are built.']);
+  flags.push(['DECISIONS', 'Stage decisions use Advance / Hold / Waitlist / Decline. Not settled as of Nov 19.']);
+  return `<section class="teamp" aria-label="Team view">
+    <div class="k">TEAM VIEW · hidden from BiT during the session</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px"><span><b>Workflow:</b> ${esc(pat.hit || pat.suggested)} ${pat.hit ? '<span class="pill done">matches existing</span>' : '<span class="pill prog">new</span>'}</span><span><b>Program Workflow row:</b> ${esc(p.name)} · cohort blank → ${esc(pat.hit || pat.suggested)}</span></div>
+    <div class="chevs" aria-label="Application status path"><span class="chev first">Incomplete</span><span class="chev">Submitted</span>
+      ${sp.mids.length ? `<span class="grp"><span class="row">${sp.mids.map(x => `<span class="chev stg">${esc(x)}</span>`).join('')}</span><span class="brk"></span><span class="bl">rolls up from stage_type</span></span>` : ''}
+      <span class="chev">Selected</span><span class="chev ok">Confirmed</span></div>
+    <div class="tblw"><table class="at"><thead><tr><th>#</th><th>Stage</th><th>stage_type</th><th>Status shown</th><th>Rubric</th><th>Reviewers</th><th>Decisions</th></tr></thead><tbody>
+      ${m.workflow.stages.map(s => `<tr><td>${s.sequence}</td><td>${esc(s.name)}</td><td class="m">${esc(s.stageType)}</td><td>${esc(s.statusShown)}</td><td>${esc(s.rubric)}<br><span class="small">${esc(s.rubricType)}${s.scaleMax ? ' · 1–' + s.scaleMax : ''}${s.criteria && s.criteria.length ? ' · ' + s.criteria.length + ' criteria' : s.criteriaByTrack ? ' · by track' : ''}</span></td><td>${esc(s.reviewerRoles.join(', '))}${s.reviewersPerApplication ? ' × ' + s.reviewersPerApplication : ''}</td><td class="m">${esc(s.decisions.join(', '))}</td></tr>`).join('')}
+    </tbody></table></div>
+    <p class="small">Knock-out: ${esc(m.knockOut.howChecked)}. ${p.checks.filter(c => c.effect === 'disqualifies').length} rules disqualify, ${p.checks.filter(c => c.effect === 'unknown').length} to confirm.</p>
+    <div class="flags">${flags.map(([b, t]) => `<div class="flag ${b === 'DECISIONS' ? 'info' : ''}"><b>${esc(b)}</b><span>${esc(t)}</span></div>`).join('')}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <button type="button" class="btn sm" data-act="copy-md">Copy as Markdown</button>
+      <button type="button" class="btn sm" data-act="copy-json">Copy data dictionary JSON</button>
+      ${MODE === 'hosted' ? '<button type="button" class="btn sm" data-act="dl-json">Download JSON</button>' : ''}
+      <button type="button" class="btn sm warn" data-act="reset">${ui.arm === 'reset' ? 'Click again to reset to our draft' : 'Reset to our draft'}</button>
+    </div>
+  </section>`;
+}
+
+/* ------------------------------------------------------------------ actions */
+function cur() { const id = (location.hash || '').slice(1); return draftOf(id) ? getWork(id) : null; }
+function findById(list, id) { return list.find(x => x.id === id); }
+const ACT = {
+  home() { ui.edit = null; ui.arm = null; if (location.hash) { try { history.pushState(null, '', location.pathname + location.search); } catch (e) { location.hash = ''; } } render(); window.scrollTo(0, 0); },
+  open(t) { ui.edit = null; ui.arm = null; location.hash = t.dataset.id; window.scrollTo(0, 0); },
+  'toggle-guide'() { ui.guide = !ui.guide; saveUi(); render(); },
+  'toggle-team'() { ui.team = !ui.team; saveUi(); render(); },
+  close() { ui.edit = null; ui.arm = null; render(); },
+  chip(t) { const k = t.dataset.k; ui.edit = ui.edit && ui.edit.type === 'basic' && ui.edit.key === k ? null : {type: 'basic', key: k}; render(); const el = $('#basic-in'); if (el) el.focus(); },
+  'basic-opt'(t) { const w = cur(), k = t.dataset.k; setBasic(w, k, t.dataset.v); ui.edit = null; touch(w.p.id); },
+  'basic-save'(t) { const w = cur(), k = t.dataset.k, v = ($('#basic-in') || {}).value || ''; setBasic(w, k, v.trim()); ui.edit = null; touch(w.p.id); },
+  'basic-ok'(t) { const w = cur(), b = w.p.basics[t.dataset.k]; b.ok = true; ui.edit = null; touch(w.p.id); },
+  'basic-unknown'(t) { const w = cur(), k = t.dataset.k; w.p.basics[k] = Object.assign(w.p.basics[k] || {}, {v: '', conf: BASICS[k].optional ? 'doc' : 'unknown', ok: false, changed: true}); ui.edit = null; touch(w.p.id); },
+  'step-ok'(t) { const w = cur(), s = findById(w.p.steps, t.dataset.id); s.ok = !s.ok; touch(w.p.id); },
+  'step-open'(t) { const id = t.dataset.id; ui.arm = null; ui.edit = ui.edit && ui.edit.type === 'step' && ui.edit.id === id ? null : {type: 'step', id}; render(); if (ui.edit) { const e = $('.editor'); if (e) e.scrollIntoView({block: 'nearest', behavior: 'smooth'}); } },
+  'step-add'() { const w = cur(); const s = {id: uid('n'), kind: 'screen', name: 'New step', who: [], count: null, judge: 'unknown', scale: null, criteria: [], outcomes: ['advance', 'decline'], scheduled: false, rubric: '', conf: 'doc', src: [], note: '', ok: true, added: true}; w.p.steps.push(s); ui.edit = {type: 'step', id: s.id}; touch(w.p.id); const el = $('#st-name'); if (el) { el.focus(); el.select(); } },
+  'step-who'(t) { const w = cur(), s = findById(w.p.steps, t.dataset.id), v = t.dataset.v; s.who = s.who || []; s.who = s.who.includes(v) ? s.who.filter(x => x !== v) : s.who.concat(v); s.ok = true; touch(w.p.id); },
+  'step-out'(t) { const w = cur(), s = findById(w.p.steps, t.dataset.id), v = t.dataset.v; const o = s.outcomes || []; s.outcomes = Object.keys(OUT).filter(k => k === v ? !o.includes(k) : o.includes(k)); s.ok = true; touch(w.p.id); },
+  'step-move'(t) { const w = cur(), i = w.p.steps.findIndex(s => s.id === t.dataset.id), j = i + Number(t.dataset.dir); if (j < 0 || j >= w.p.steps.length) return; const a = w.p.steps; [a[i], a[j]] = [a[j], a[i]]; touch(w.p.id); },
+  'step-del'(t) { const w = cur(), id = t.dataset.id; if (ui.arm !== 'del-' + id) { ui.arm = 'del-' + id; render(); return; } w.p.steps = w.p.steps.filter(s => s.id !== id); ui.arm = null; ui.edit = null; touch(w.p.id); },
+  'check-effect'(t) { const w = cur(), c = findById(w.p.checks, t.dataset.id); c.effect = t.dataset.v; c.ok = true; touch(w.p.id); },
+  'check-ok'(t) { const w = cur(), c = findById(w.p.checks, t.dataset.id); c.ok = !c.ok; touch(w.p.id); },
+  'check-edit'(t) { ui.arm = null; ui.edit = {type: 'check', id: t.dataset.id}; render(); const el = document.getElementById('ck-' + t.dataset.id); if (el) el.focus(); },
+  'check-add'() { const w = cur(); const c = {id: uid('c'), text: '', effect: 'disqualifies', conf: 'doc', src: [], ok: true, added: true}; w.p.checks.push(c); ui.edit = {type: 'check', id: c.id}; touch(w.p.id); const el = document.getElementById('ck-' + c.id); if (el) el.focus(); },
+  'check-del'(t) { const w = cur(), id = t.dataset.id; if (ui.arm !== 'cdel-' + id) { ui.arm = 'cdel-' + id; render(); return; } w.p.checks = w.p.checks.filter(c => c.id !== id); ui.arm = null; ui.edit = null; touch(w.p.id); },
+  'after-ok'(t) { const w = cur(), a = findById(w.p.after, t.dataset.id); a.ok = !a.ok; touch(w.p.id); },
+  'after-edit'(t) { ui.arm = null; ui.edit = {type: 'after', id: t.dataset.id}; render(); const el = document.getElementById('af-' + t.dataset.id); if (el) el.focus(); },
+  'after-add'() { const w = cur(); const a = {id: uid('a'), text: '', conf: 'doc', src: [], ok: true, added: true}; w.p.after.push(a); ui.edit = {type: 'after', id: a.id}; touch(w.p.id); const el = document.getElementById('af-' + a.id); if (el) el.focus(); },
+  'after-move'(t) { const w = cur(), i = w.p.after.findIndex(a => a.id === t.dataset.id); if (i < 1) return; const a = w.p.after; [a[i - 1], a[i]] = [a[i], a[i - 1]]; touch(w.p.id); },
+  'after-del'(t) { const w = cur(), id = t.dataset.id; if (ui.arm !== 'adel-' + id) { ui.arm = 'adel-' + id; render(); return; } w.p.after = w.p.after.filter(a => a.id !== id); ui.arm = null; ui.edit = null; touch(w.p.id); },
+  confirm() { send('confirmed'); },
+  'save-progress'() { send('progress'); },
+  tri(t) { const tr = triage(), g = t.dataset.g; tr[g][t.dataset.id] = tr[g][t.dataset.id] === t.dataset.v ? '' : t.dataset.v; LS.set(KEY + 'triage', tr); render(); },
+  'tri-send'() { sendTriage(); },
+  'copy-md'() { const w = cur(); copyText(markdownOf(w.p), 'Markdown copied'); },
+  'copy-json'() { const w = cur(); copyText(JSON.stringify(modelOf(w.p), null, 2), 'JSON copied'); },
+  'dl-json'() { const w = cur(); const blob = new Blob([JSON.stringify(modelOf(w.p), null, 2)], {type: 'application/json'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `${w.p.id}-intake-review.json`; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); },
+  reset() { const w = cur(); if (ui.arm !== 'reset') { ui.arm = 'reset'; render(); return; } const id = w.p.id; LS.del(KEY + 'prog:' + id); WORK[id] = {p: clone(draftOf(id)), meta: {status: 'draft'}}; ui.arm = null; ui.edit = null; render(); toast('Back to our draft'); }
+};
+function setBasic(w, k, v) {
+  const d = (draftOf(w.p.id).basics[k] || {}).v || '';
+  const b = w.p.basics[k] = Object.assign(w.p.basics[k] || {conf: 'unknown', src: []}, {v});
+  b.ok = !!v; b.changed = v !== d;
+  if (!v) b.conf = BASICS[k].optional ? 'doc' : 'unknown';
+}
+
+/* ------------------------------------------------------------------ sending */
+function payloadFor(kind, w) {
+  const p = w.p;
+  return {kind, at: now(), programId: p.id, programName: p.name, confirmedBy: (w.meta.pendingName || w.meta.confirmedBy || '').trim(), role: (w.meta.pendingRole || w.meta.role || '').trim(),
+    draftVersion: DATA.version, summary: sentencePlain(p) + '\n' + p.steps.map((s, i) => `${i + 1}. ${stepLine(s, i, p.steps.length)}`).join('\n'),
+    changes: changesOf(p), open: openOf(p), answers: answersOf(p), profile: p, model: modelOf(p)};
+}
+async function post(body) {
+  if (MODE !== 'hosted') return {ok: false, preview: true};
+  try {
+    const r = await fetch('/api/submit', {method: 'POST', headers: {'Content-Type': 'application/json', 'x-access-code': CODE}, body: JSON.stringify(body)});
+    const j = await r.json().catch(() => ({}));
+    if (r.status === 401) return {ok: false, error: 'passcode'};
+    return r.ok ? {ok: true} : {ok: false, error: j.error || 'failed'};
+  } catch (e) { return {ok: false, error: 'offline'}; }
+}
+async function send(kind) {
+  const w = cur(); if (!w) return;
+  const st = $('#cfStatus');
+  if (kind === 'confirmed' && !(w.meta.pendingName || w.meta.confirmedBy || '').trim()) { st.textContent = 'Add the name of the person confirming first.'; st.className = 'status err'; $('#cf-name').focus(); return; }
+  st.textContent = 'Sending…'; st.className = 'status';
+  const body = payloadFor(kind, w);
+  const res = await post(body);
+  if (kind === 'confirmed') {
+    w.p.steps.forEach(s => s.ok = true); w.p.checks.forEach(c => c.ok = true); w.p.after.forEach(a => a.ok = true);
+    Object.values(w.p.basics).forEach(b => { if (b.v) b.ok = true; });
+    w.meta = {status: 'confirmed', at: body.at, savedAt: body.at, confirmedBy: body.confirmedBy, role: body.role};
+  } else {
+    w.meta.savedAt = body.at;
+  }
+  LS.set(KEY + 'prog:' + w.p.id, {p: w.p, meta: w.meta, draftVersion: DATA.version});
+  render();
+  const st2 = $('#cfStatus');
+  if (res.ok) { st2.textContent = kind === 'confirmed' ? 'Confirmed and sent to the team sheet.' : 'Progress saved to the team sheet.'; toast(kind === 'confirmed' ? `${w.p.name} confirmed` : 'Progress saved'); }
+  else if (res.preview) { st2.textContent = 'Preview: saved on this device only. On the hosted page this goes to the team sheet.'; toast(kind === 'confirmed' ? `${w.p.name} confirmed (preview)` : 'Saved on this device'); }
+  else { st2.textContent = res.error === 'not_configured' ? 'Saved on this device. The team sheet is not connected yet.' : res.error === 'passcode' ? 'The passcode stopped working. Reload and enter it again. Your work is saved on this device.' : 'Could not reach the team sheet. Saved on this device; try again in a moment.'; st2.className = 'status err'; }
+}
+async function sendTriage() {
+  const tr = triage();
+  const body = {kind: 'triage', at: now(), draftVersion: DATA.version, confirmedBy: '', role: '',
+    signups: DATA.signups.map(s => ({id: s.id, name: s.name, answer: tr.signups[s.id] || ''})),
+    dormant: DATA.dormant.map(s => ({id: s.id, name: s.name, answer: tr.dormant[s.id] || ''})),
+    summary: 'Program triage', changes: [], open: [], answers: []};
+  body.answers = body.signups.concat(body.dormant).filter(x => x.answer).map(x => `${x.name}: ${x.answer}`);
+  const res = await post(body);
+  tr.sentAt = body.at; LS.set(KEY + 'triage', tr); render();
+  const st = $('#triStatus');
+  if (res.ok) toast('Answers sent'); else if (res.preview) { st.textContent = 'Preview: saved on this device only.'; } else { st.textContent = res.error === 'not_configured' ? 'Saved on this device. The team sheet is not connected yet.' : 'Could not reach the team sheet. Try again in a moment.'; st.className = 'status err'; }
+}
+
+/* ------------------------------------------------------------------ events */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-act]'); if (!t || t.disabled) return;
+  const fn = ACT[t.dataset.act]; if (fn) { e.preventDefault(); fn(t, e); }
+});
+function bindInput(e, live) {
+  const el = e.target, b = el.dataset && el.dataset.bind; if (!b) return;
+  const w = cur(); if (!w) return;
+  const [type, id, field] = b.split(':');
+  const val = el.type === 'checkbox' ? el.checked : el.value;
+  if (type === 'q') { const q = findById(w.p.questions, id); q.answer = val; touch(w.p.id, false); return; }
+  if (type === 'meta') { w.meta[id === 'confirmedBy' ? 'pendingName' : 'pendingRole'] = val; return; }
+  if (type === 'check') { const c = findById(w.p.checks, id); c.text = val; c.ok = true; touch(w.p.id, false); return; }
+  if (type === 'after') { const a = findById(w.p.after, id); a.text = val; a.ok = true; touch(w.p.id, false); return; }
+  if (type === 'stepgroup') { const s = findById(w.p.steps, id); s.groups[Number(field)].items = val.split('\n').map(x => x.trim()).filter(Boolean); s.ok = true; touch(w.p.id, false); return; }
+  if (type === 'step') {
+    const s = findById(w.p.steps, id); if (!s) return;
+    if (field === 'criteria') s.criteria = val.split('\n').map(x => x.trim()).filter(Boolean);
+    else if (field === 'count') s.count = val ? Number(val) : null;
+    else if (field === 'scale') s.scale = val ? Number(val) : null;
+    else s[field] = val;
+    s.ok = true;
+    if (field === 'name') document.querySelectorAll(`[data-live="name-${id}"],[data-live="name2-${id}"]`).forEach(n => n.textContent = val);
+    touch(w.p.id, !live && ['kind', 'judge', 'scale', 'scheduled'].includes(field));
+  }
+}
+document.addEventListener('input', e => bindInput(e, true));
+document.addEventListener('change', e => bindInput(e, false));
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && ui.edit) { ui.edit = null; ui.arm = null; render(); }
+  if (e.key === 'Enter' && e.target.id === 'basic-in') { e.preventDefault(); ACT['basic-save']({dataset: {k: ui.edit.key}}); }
+});
+window.addEventListener('hashchange', () => { ui.edit = null; ui.arm = null; render(); });
+
+/* ------------------------------------------------------------------ boot */
+function gateHTML(msg) {
+  return `<form class="gate card" id="gate"><p class="kicker">Build in Tulsa · Intake &amp; Review</p><h1>Enter the passcode</h1>
+    <p class="small">This page holds draft notes about BiT's programs. Ask Chris or Gabe for the passcode.</p>
+    <label class="f" for="passcode">Passcode<input type="password" id="passcode" autocomplete="current-password" required></label>
+    <button type="submit" class="btn pri">Open</button><p class="status ${msg ? 'err' : ''}" id="gateMsg">${esc(msg || '')}</p></form>`;
+}
+async function loadHosted(code) {
+  const r = await fetch('/api/programs', {headers: {'x-access-code': code}, cache: 'no-store'});
+  if (r.status === 401) return {err: 'That passcode did not work.'};
+  if (!r.ok) return {err: 'The page could not load its data. Try again in a minute.'};
+  return {json: await r.json()};
+}
+async function boot() {
+  const seed = document.getElementById('seed');
+  if (seed) { MODE = 'preview'; DATA = JSON.parse(seed.textContent); render(); return; }
+  MODE = 'hosted';
+  const tryCode = async (code) => {
+    const res = await loadHosted(code);
+    if (res.err) { SS.del(KEY + 'code'); $('#app').innerHTML = gateHTML(code ? res.err : ''); wireGate(); return; }
+    CODE = code; SS.set(KEY + 'code', code);
+    DATA = res.json.data; LATEST = res.json.latest || {}; SHEET = res.json.sheet || '';
+    if (res.json.triage && !(triage().sentAt)) { const t = {signups: {}, dormant: {}, sentAt: res.json.triage.at}; (res.json.triage.signups || []).forEach(x => t.signups[x.id] = x.answer); (res.json.triage.dormant || []).forEach(x => t.dormant[x.id] = x.answer); LS.set(KEY + 'triage', t); }
+    render();
+  };
+  const wireGate = () => { const f = $('#gate'); if (!f) return; f.addEventListener('submit', ev => { ev.preventDefault(); const v = $('#passcode').value.trim(); if (v) { $('#gateMsg').textContent = 'Checking…'; tryCode(v); } }); $('#passcode').focus(); };
+  const saved = SS.get(KEY + 'code');
+  if (saved) tryCode(saved); else { $('#app').innerHTML = gateHTML(''); wireGate(); }
+}
+boot();
+})();
+</script>
+</body>
+</html>

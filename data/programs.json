@@ -1,0 +1,2632 @@
+{
+ "version": "2026-11-25",
+ "org": "Build in Tulsa",
+ "sources": {
+  "HB": {
+   "title": "Intake & Review Handbook (W.E. Build), Nov 20",
+   "url": ""
+  },
+  "INV": {
+   "title": "Intake & Review Inventory / Workflow Intake Form (Gabe), Nov 24",
+   "url": ""
+  },
+  "BU-PM": {
+   "title": "Build Up Program - Process Mapping Document",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/326205447"
+  },
+  "BU-MTG": {
+   "title": "2026-04-07 Build Up w/ Charmane Harris",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/326270981"
+  },
+  "BU-T": {
+   "title": "BIT Q&A - BUILD UP Tech",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/466288641"
+  },
+  "BU-C": {
+   "title": "BIT Q&A - BUILD UP CPG",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/466714627"
+  },
+  "FORMS": {
+   "title": "DD-Handoff-V4 · 6 · Every question we ask (live Typeform definitions)",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/485392387"
+  },
+  "FF-PM": {
+   "title": "DRAFT Process Mapping: Female Founders Pitch Night",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/328433678"
+  },
+  "FF": {
+   "title": "BIT Q&A - Female Founders Pitch Night",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/466616355"
+  },
+  "PPN": {
+   "title": "BIT Q&A - Product Pitch Night",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/466812933"
+  },
+  "1921": {
+   "title": "BIT Q&A - 1921 Award",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/466616363"
+  },
+  "FFFM": {
+   "title": "BIT Q&A - First Friday Founders Market",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/466878470"
+  },
+  "QBIT": {
+   "title": "Questions for Build in Tulsa - internal, with evidence",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/473104407"
+  },
+  "LIFE": {
+   "title": "BIT - Application lifecycle, review and conversion",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/481951804"
+  },
+  "SC": {
+   "title": "BIT - Service Catalog",
+   "url": "https://tulsaforyou.atlassian.net/wiki/spaces/IST/pages/499384323"
+  }
+ },
+ "programs": [
+  {
+   "id": "we-build",
+   "name": "W.E. Build",
+   "group": "main",
+   "kind": "Accelerator",
+   "template": true,
+   "short": "Twelve-week, full-time, in-person accelerator for women founders who are already in market and ready to scale.",
+   "basics": {
+    "entry": {
+     "v": "applying online",
+     "conf": "doc",
+     "src": [
+      "HB"
+     ]
+    },
+    "form": {
+     "v": "W.E. Build Application 2026",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "first": {
+     "v": "an optional interest form",
+     "conf": "doc",
+     "src": [
+      "HB",
+      "FORMS"
+     ]
+    },
+    "rhythm": {
+     "v": "once a year",
+     "conf": "doc",
+     "src": [
+      "HB"
+     ]
+    },
+    "deadline": {
+     "v": "April 10, 2026",
+     "conf": "doc",
+     "src": [
+      "QBIT"
+     ]
+    },
+    "size": {
+     "v": "about 10 founders",
+     "conf": "doc",
+     "src": [
+      "QBIT"
+     ]
+    },
+    "decider": {
+     "v": "a selection committee of staff and community members",
+     "conf": "doc",
+     "src": [
+      "HB"
+     ]
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Is in, or has finished, another accelerator (ACT Tulsa, BiT Techstars, Lightship)",
+     "effect": "disqualifies",
+     "conf": "guess",
+     "src": [
+      "HB",
+      "FORMS"
+     ],
+     "note": "The handbook calls this the knock-out question. The screening rubric also scores \"at most 1 prior accelerator\", so which is it?"
+    },
+    {
+     "id": "c2",
+     "text": "Lives in Tulsa or will relocate for the program",
+     "effect": "noted",
+     "conf": "guess",
+     "src": [
+      "QBIT",
+      "INV"
+     ],
+     "note": "Scored in screening, not a hard no."
+    },
+    {
+     "id": "c3",
+     "text": "Company is incorporated (LLC, S-Corp or C-Corp)",
+     "effect": "noted",
+     "conf": "guess",
+     "src": [
+      "QBIT",
+      "INV"
+     ]
+    },
+    {
+     "id": "c4",
+     "text": "Can commit 40 hours a week in person, Sept 1 to Nov 20",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "screen",
+     "name": "Application screening",
+     "who": [
+      "staff"
+     ],
+     "count": 1,
+     "judge": "scored",
+     "scale": 4,
+     "criteria": [
+      "Tulsa location / relocation readiness",
+      "Company age (founded less than 5 years ago)",
+      "Incorporated status",
+      "Number of paying clients, users or contracts",
+      "KPI tracking readiness",
+      "Accelerator saturation (at most 1 prior accelerator)",
+      "Revenue generated (recent)",
+      "Stage and product-market fit (in market, emerging or strong PMF)",
+      "Recurring revenue / early revenue quality",
+      "Customer acquisition strategy clarity",
+      "Commitment to 25% growth",
+      "Revenue"
+     ],
+     "outcomes": [
+      "advance",
+      "hold",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "W.E. Build Screening",
+     "conf": "doc",
+     "src": [
+      "HB",
+      "INV"
+     ],
+     "note": "Nov 19: one person files the review for a stage. The older pages showed 3 screeners."
+    },
+    {
+     "id": "s2",
+     "kind": "interview",
+     "name": "First round interview",
+     "who": [
+      "staff"
+     ],
+     "count": 1,
+     "judge": "scored",
+     "scale": 4,
+     "criteria": [
+      "Founder / solution fit",
+      "Market and go-to-market strategy",
+      "Tulsa commitment",
+      "ICP clarity",
+      "Traction proof",
+      "Sales process and pipeline",
+      "Business acumen",
+      "25% growth potential"
+     ],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": true,
+     "rubric": "Accelerator Interview",
+     "conf": "doc",
+     "src": [
+      "HB",
+      "INV"
+     ],
+     "note": ""
+    },
+    {
+     "id": "s3",
+     "kind": "interview",
+     "name": "Second round interview",
+     "who": [
+      "committee",
+      "community"
+     ],
+     "count": 1,
+     "judge": "scored",
+     "scale": 4,
+     "criteria": [
+      "Founder / solution fit",
+      "Market and go-to-market strategy",
+      "Tulsa commitment",
+      "ICP clarity",
+      "Traction proof",
+      "Sales process and pipeline",
+      "Business acumen",
+      "25% growth potential"
+     ],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": true,
+     "rubric": "Accelerator Interview",
+     "conf": "doc",
+     "src": [
+      "HB"
+     ],
+     "note": "Same rubric as round one. Panel of 4 internal and 3 to 5 community members."
+    },
+    {
+     "id": "s4",
+     "kind": "committee",
+     "name": "Committee decision",
+     "who": [
+      "committee"
+     ],
+     "count": null,
+     "judge": "discussion",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "waitlist",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "doc",
+     "src": [
+      "HB"
+     ],
+     "note": ""
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "Conditional offer",
+     "conf": "doc",
+     "src": [
+      "HB"
+     ]
+    },
+    {
+     "id": "a2",
+     "text": "Reference check (a short questionnaire to referees)",
+     "conf": "doc",
+     "src": [
+      "HB",
+      "LIFE"
+     ]
+    },
+    {
+     "id": "a3",
+     "text": "Background check",
+     "conf": "guess",
+     "src": [
+      "HB"
+     ]
+    },
+    {
+     "id": "a4",
+     "text": "Agreements signed, then orientation",
+     "conf": "guess",
+     "src": [
+      "HB"
+     ]
+    }
+   ],
+   "today": [
+    "Accepted",
+    "Rejected",
+    "Accepted/Declined Offer",
+    "Active Cohort",
+    "Declination"
+   ],
+   "todaySrc": [
+    "LIFE"
+   ],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Are the second interview and the committee decision really one step?",
+     "why": "If yes, W.E. Build runs on three steps instead of four."
+    },
+    {
+     "id": "q2",
+     "q": "Do you screen applications as they come in, or all together after the deadline? Who assigns reviewers?",
+     "why": ""
+    },
+    {
+     "id": "q3",
+     "q": "Which answers on the form are an automatic no?",
+     "why": ""
+    },
+    {
+     "id": "q4",
+     "q": "After the committee says yes, what is the order: offer, reference check, background check, orientation? Does anything wait on the background check?",
+     "why": ""
+    },
+    {
+     "id": "q5",
+     "q": "Do community reviewers enter their reviews in Salesforce?",
+     "why": ""
+    }
+   ],
+   "pattern": "Accelerator · 4-stage (v1)"
+  },
+  {
+   "id": "build-up",
+   "name": "BUILD UP",
+   "group": "main",
+   "kind": "Pre-accelerator",
+   "short": "Four-week pre-accelerator for early founders, with a Tech track and a CPG (consumer product) track.",
+   "basics": {
+    "entry": {
+     "v": "applying online",
+     "conf": "doc",
+     "src": [
+      "BU-PM"
+     ]
+    },
+    "form": {
+     "v": "BUILD UP Application 2026 (one form for both tracks)",
+     "conf": "doc",
+     "src": [
+      "FORMS",
+      "BU-C"
+     ],
+     "note": "Three different application links are live on the website."
+    },
+    "first": {
+     "v": "an optional info session on Eventbrite",
+     "conf": "doc",
+     "src": [
+      "BU-T"
+     ]
+    },
+    "rhythm": {
+     "v": "once a year",
+     "conf": "guess",
+     "src": [
+      "BU-T"
+     ]
+    },
+    "deadline": {
+     "v": "Feb 22 or Mar 1, 2026 (both are on the site)",
+     "conf": "guess",
+     "src": [
+      "QBIT",
+      "BU-T"
+     ]
+    },
+    "size": {
+     "v": "up to 35 Tech and at least 15 CPG founders",
+     "conf": "doc",
+     "src": [
+      "BU-T",
+      "BU-C"
+     ]
+    },
+    "decider": {
+     "v": "the program coordinator and program manager, in a weekly meeting",
+     "conf": "doc",
+     "src": [
+      "BU-PM",
+      "BU-MTG"
+     ]
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Based in Tulsa or committed to building here",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "BU-T"
+     ],
+     "note": "Is this checked, or self-declared?"
+    },
+    {
+     "id": "c2",
+     "text": "Picks a track: Tech or CPG",
+     "effect": "noted",
+     "conf": "doc",
+     "src": [
+      "FORMS",
+      "BU-PM"
+     ]
+    },
+    {
+     "id": "c3",
+     "text": "Is early-stage",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "BU-PM"
+     ]
+    },
+    {
+     "id": "c4",
+     "text": "Willing to do customer interviews, assignments and coaching",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "check",
+     "name": "Eligibility check",
+     "who": [
+      "pc"
+     ],
+     "count": 1,
+     "judge": "checklist",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "doc",
+     "src": [
+      "BU-PM"
+     ],
+     "note": "The coordinator checks location, track and stage in the Google Sheet."
+    },
+    {
+     "id": "s2",
+     "kind": "interview",
+     "name": "Interview",
+     "who": [
+      "pc",
+      "pm"
+     ],
+     "count": 1,
+     "judge": "scored",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": true,
+     "rubric": "BUILD UP Intake Summary",
+     "conf": "doc",
+     "src": [
+      "BU-PM",
+      "FORMS"
+     ],
+     "note": "On Zoom, booked through Calendly. The coordinator or manager fills in the intake summary and gives a recommendation.",
+     "groups": [
+      {
+       "label": "Tech track",
+       "items": [
+        "Problem clarity and relevance",
+        "Customer understanding and discovery readiness",
+        "Product approach and validation fit",
+        "Coachability and learning orientation",
+        "Commitment and program fit"
+       ]
+      },
+      {
+       "label": "CPG track",
+       "items": [
+        "Buyer / consumer problem clarity",
+        "Customer discovery and demand signals",
+        "Product concept readiness",
+        "Coachability and learning orientation",
+        "Commitment and program fit"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "s3",
+     "kind": "committee",
+     "name": "Weekly decision meeting",
+     "who": [
+      "pc",
+      "pm"
+     ],
+     "count": null,
+     "judge": "discussion",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "waitlist",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "doc",
+     "src": [
+      "BU-PM",
+      "BU-MTG"
+     ],
+     "note": ""
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "Welcome email and onboarding forms (onboarding, marketing release, knowledge check)",
+     "conf": "doc",
+     "src": [
+      "BU-PM"
+     ]
+    },
+    {
+     "id": "a2",
+     "text": "To complete: 4 workshops, at least 1 coaching session and a finished data room",
+     "conf": "doc",
+     "src": [
+      "BU-T"
+     ]
+    },
+    {
+     "id": "a3",
+     "text": "$100 completion payment",
+     "conf": "doc",
+     "src": [
+      "SC"
+     ]
+    }
+   ],
+   "today": [
+    "New Lead",
+    "Incomplete",
+    "Submitted",
+    "Eligible",
+    "Ineligible",
+    "Ready for Interview",
+    "Interview Scheduled",
+    "Interview Complete",
+    "Accepted",
+    "Waitlisted",
+    "Declined"
+   ],
+   "todaySrc": [
+    "BU-PM"
+   ],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Is BUILD UP one program with two tracks, or two separate programs?",
+     "why": "This decides how it is set up and reported."
+    },
+    {
+     "id": "q2",
+     "q": "Which application link is the live one, and which close date is right: Feb 22 or Mar 1?",
+     "why": ""
+    },
+    {
+     "id": "q3",
+     "q": "Are CPG applicants decided in the same weekly meeting as Tech?",
+     "why": ""
+    },
+    {
+     "id": "q4",
+     "q": "Does every eligible applicant get an interview?",
+     "why": ""
+    },
+    {
+     "id": "q5",
+     "q": "How are the interview ratings scored? 1 to 4, like W.E. Build?",
+     "why": ""
+    }
+   ],
+   "pattern": ""
+  },
+  {
+   "id": "ffpn",
+   "name": "Female Founders Pitch Night",
+   "group": "main",
+   "kind": "Pitch program",
+   "short": "Six-week cohort for female-identifying founders with a tech product, ending in a live Pitch Night with cash prizes.",
+   "basics": {
+    "entry": {
+     "v": "applying online",
+     "conf": "doc",
+     "src": [
+      "FF-PM"
+     ]
+    },
+    "form": {
+     "v": "Female Founders Pitch Night 2026 Application",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "first": {
+     "v": "",
+     "conf": "doc",
+     "src": []
+    },
+    "rhythm": {
+     "v": "once a year (it has run up to three times a year before)",
+     "conf": "guess",
+     "src": [
+      "FF"
+     ]
+    },
+    "deadline": {
+     "v": "March 27, 2026 (extended from March 6)",
+     "conf": "doc",
+     "src": [
+      "FF"
+     ]
+    },
+    "size": {
+     "v": "7 to 9 founders",
+     "conf": "doc",
+     "src": [
+      "FF"
+     ]
+    },
+    "decider": {
+     "v": "a screening committee of staff and panelists",
+     "conf": "doc",
+     "src": [
+      "FF",
+      "FF-PM"
+     ]
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Startup is based in Tulsa",
+     "effect": "disqualifies",
+     "conf": "guess",
+     "src": [
+      "FF"
+     ],
+     "note": "The website says Tulsa. Confluence says Tulsa or Oklahoma."
+    },
+    {
+     "id": "c2",
+     "text": "Product is tech or tech-enabled",
+     "effect": "disqualifies",
+     "conf": "guess",
+     "src": [
+      "FF",
+      "FORMS"
+     ]
+    },
+    {
+     "id": "c3",
+     "text": "Already has an MVP",
+     "effect": "disqualifies",
+     "conf": "guess",
+     "src": [
+      "FF",
+      "FORMS"
+     ]
+    },
+    {
+     "id": "c4",
+     "text": "Company is under 5 years old",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FF"
+     ]
+    },
+    {
+     "id": "c5",
+     "text": "Is in a prohibited industry",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "FF"
+     ],
+     "note": "No list of industries is written down."
+    },
+    {
+     "id": "c6",
+     "text": "Applied before with the same company",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "FF"
+     ]
+    },
+    {
+     "id": "c7",
+     "text": "Is currently in an accelerator (ACT Tulsa, W.E. Build, Lightship)",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "check",
+     "name": "Eligibility check",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "checklist",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "doc",
+     "src": [
+      "FF-PM"
+     ],
+     "note": "Checks location, prior participation and industry. A no reads \"did not meet criteria\"."
+    },
+    {
+     "id": "s2",
+     "kind": "screen",
+     "name": "Application scoring",
+     "who": [
+      "staff",
+      "judges"
+     ],
+     "count": null,
+     "judge": "scored",
+     "scale": 4,
+     "criteria": [
+      "Founder",
+      "Product (problem and solution)",
+      "Business model",
+      "Traction",
+      "Market",
+      "Team",
+      "Need for the Female Founders Pitch Night workshops"
+     ],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "FFPN Screening",
+     "conf": "doc",
+     "src": [
+      "FF-PM",
+      "FF"
+     ],
+     "note": "Staff and/or panelists score in Google Sheets or the 2026 Airtable base."
+    },
+    {
+     "id": "s3",
+     "kind": "interview",
+     "name": "Interview",
+     "who": [
+      "committee"
+     ],
+     "count": null,
+     "judge": "scored",
+     "scale": 4,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": true,
+     "rubric": "FFPN Screening",
+     "conf": "doc",
+     "src": [
+      "FF-PM",
+      "FF"
+     ],
+     "note": "Booked on Calendly, held on Zoom. Panelists fill in scorecards and a recommendation for the cohort. No-shows are recorded."
+    },
+    {
+     "id": "s4",
+     "kind": "committee",
+     "name": "Final selection",
+     "who": [
+      "committee"
+     ],
+     "count": null,
+     "judge": "discussion",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "FF-PM"
+     ],
+     "note": "\"Scores are aggregated for final selection.\" Is this a meeting, or does the top score win a place?"
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "Onboarding and marketing forms, then orientation",
+     "conf": "doc",
+     "src": [
+      "FF-PM",
+      "FF"
+     ]
+    },
+    {
+     "id": "a2",
+     "text": "Workshops (six or seven; the sources differ), weekly coaching and pitch practices",
+     "conf": "guess",
+     "src": [
+      "FF"
+     ]
+    },
+    {
+     "id": "a3",
+     "text": "Only founders who complete the full program can pitch",
+     "conf": "doc",
+     "src": [
+      "FF"
+     ]
+    },
+    {
+     "id": "a4",
+     "text": "Pitch Night: judges hear a 5-minute pitch and 3 minutes of Q&A. Prizes $10,000, $5,000, $2,500 and $1,000 Audience Choice; $100 to everyone else",
+     "conf": "doc",
+     "src": [
+      "FF"
+     ]
+    },
+    {
+     "id": "a5",
+     "text": "W-9 collected so prizes and stipends can be paid",
+     "conf": "doc",
+     "src": [
+      "FF-PM"
+     ]
+    }
+   ],
+   "today": [
+    "Interested",
+    "Applied",
+    "Eligible",
+    "Ineligible",
+    "Under Review",
+    "Reviewed",
+    "Disqualified",
+    "Scheduled",
+    "Completed",
+    "No Show",
+    "Selected To Participate",
+    "Not Selected To Participate"
+   ],
+   "todaySrc": [
+    "FF-PM",
+    "LIFE"
+   ],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Who sits on the screening committee, and is there a cut-off score?",
+     "why": ""
+    },
+    {
+     "id": "q2",
+     "q": "When are interviews held now that the deadline moved to March 27?",
+     "why": "The website still lists March 9 to 13."
+    },
+    {
+     "id": "q3",
+     "q": "Is eligibility Tulsa-based, or anywhere in Oklahoma?",
+     "why": ""
+    },
+    {
+     "id": "q4",
+     "q": "What does \"complete the full program\" mean, so a founder can pitch?",
+     "why": ""
+    },
+    {
+     "id": "q5",
+     "q": "Which is the record: Typeform, the FFPN Airtable base, or Google Sheets?",
+     "why": ""
+    }
+   ],
+   "pattern": ""
+  },
+  {
+   "id": "ppn",
+   "name": "Product Pitch Night",
+   "group": "main",
+   "kind": "Pitch program",
+   "short": "Eight-week training for founders building physical products, ending in a Pitch Night with cash prizes. 2026 is the fourth cohort.",
+   "basics": {
+    "entry": {
+     "v": "applying online",
+     "conf": "doc",
+     "src": [
+      "PPN"
+     ]
+    },
+    "form": {
+     "v": "Product Pitch Night 2026 Application",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "first": {
+     "v": "",
+     "conf": "doc",
+     "src": []
+    },
+    "rhythm": {
+     "v": "once a year",
+     "conf": "guess",
+     "src": [
+      "PPN"
+     ]
+    },
+    "deadline": {
+     "v": "August 21, 2026, with founders picked by September 11",
+     "conf": "doc",
+     "src": [
+      "PPN",
+      "QBIT"
+     ]
+    },
+    "size": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "decider": {
+     "v": "a screening committee",
+     "conf": "doc",
+     "src": [
+      "PPN"
+     ]
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Startup in Tulsa or the surrounding Oklahoma area, and founder lives in Oklahoma",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "PPN"
+     ]
+    },
+    {
+     "id": "c2",
+     "text": "Has a functioning MVP",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "PPN",
+      "FORMS"
+     ]
+    },
+    {
+     "id": "c3",
+     "text": "Physical product, not software alone",
+     "effect": "disqualifies",
+     "conf": "guess",
+     "src": [
+      "PPN"
+     ],
+     "note": "The form still offers \"Software\" as a product category."
+    },
+    {
+     "id": "c4",
+     "text": "Team of up to three founders",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "PPN"
+     ]
+    },
+    {
+     "id": "c5",
+     "text": "Cannabis, tobacco, alcohol or adult entertainment, or a registered nonprofit",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "PPN"
+     ]
+    },
+    {
+     "id": "c6",
+     "text": "Works for TCF or GKFF, or is family of someone who does",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "PPN"
+     ]
+    },
+    {
+     "id": "c7",
+     "text": "Is or was in ACT House, BiT Techstars, Lightship or W.E. Build",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS",
+      "PPN"
+     ]
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "check",
+     "name": "Eligibility check",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "checklist",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "PPN"
+     ],
+     "note": ""
+    },
+    {
+     "id": "s2",
+     "kind": "interview",
+     "name": "Screening committee interview",
+     "who": [
+      "committee"
+     ],
+     "count": null,
+     "judge": "scored",
+     "scale": null,
+     "criteria": [
+      "Problem-solution fit and value proposition",
+      "Target customer / market opportunity",
+      "Team - product/service fit",
+      "Traction",
+      "Pitch deck / pitch",
+      "Need for the Product Pitch Night workshops"
+     ],
+     "outcomes": [
+      "advance",
+      "hold",
+      "decline"
+     ],
+     "scheduled": true,
+     "rubric": "PPN Screening",
+     "conf": "doc",
+     "src": [
+      "PPN"
+     ],
+     "note": "Each committee record has interview notes, an interview summary and a final score."
+    },
+    {
+     "id": "s3",
+     "kind": "committee",
+     "name": "Final selection",
+     "who": [
+      "committee"
+     ],
+     "count": null,
+     "judge": "discussion",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "PPN"
+     ],
+     "note": ""
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "One-on-one coaching and workshops (Sept 22 to Oct 15)",
+     "conf": "doc",
+     "src": [
+      "PPN"
+     ]
+    },
+    {
+     "id": "a2",
+     "text": "Four hours of in-person pitch practice and a dress rehearsal",
+     "conf": "doc",
+     "src": [
+      "PPN"
+     ]
+    },
+    {
+     "id": "a3",
+     "text": "Introductions to Tulsa and Oklahoma manufacturing partners",
+     "conf": "doc",
+     "src": [
+      "PPN"
+     ]
+    },
+    {
+     "id": "a4",
+     "text": "Pitch Night prizes: $10,000, $5,000, $2,500 and $1,000 Audience Choice",
+     "conf": "doc",
+     "src": [
+      "SC"
+     ]
+    }
+   ],
+   "today": [
+    "Contestant",
+    "On Hold",
+    "Rejected",
+    "Winner"
+   ],
+   "todaySrc": [
+    "LIFE"
+   ],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Does the committee score the written application before the interview, or only after it?",
+     "why": ""
+    },
+    {
+     "id": "q2",
+     "q": "Who sits on the screening committee?",
+     "why": ""
+    },
+    {
+     "id": "q3",
+     "q": "Is software-only eligible?",
+     "why": "The website says no; the form lists Software as a category."
+    },
+    {
+     "id": "q4",
+     "q": "Does a \"yes\" to \"are you in an accelerator?\" rule someone out?",
+     "why": ""
+    },
+    {
+     "id": "q5",
+     "q": "Must founders complete the program to pitch?",
+     "why": ""
+    }
+   ],
+   "pattern": ""
+  },
+  {
+   "id": "award-1921",
+   "name": "1921 Award",
+   "group": "main",
+   "kind": "Award",
+   "short": "Award honoring eight Tulsans who carry the spirit of Black Wall Street. People nominate themselves or someone else.",
+   "basics": {
+    "entry": {
+     "v": "being nominated, by themselves or someone else",
+     "conf": "doc",
+     "src": [
+      "FORMS",
+      "1921"
+     ]
+    },
+    "form": {
+     "v": "1921 Application 2026",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "first": {
+     "v": "",
+     "conf": "doc",
+     "src": []
+    },
+    "rhythm": {
+     "v": "once a year",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "deadline": {
+     "v": "April 3, 2026",
+     "conf": "doc",
+     "src": [
+      "1921"
+     ]
+    },
+    "size": {
+     "v": "8 awardees",
+     "conf": "doc",
+     "src": [
+      "1921"
+     ]
+    },
+    "decider": {
+     "v": "a committee of BiT team members and Tulsa community leaders",
+     "conf": "doc",
+     "src": [
+      "1921"
+     ]
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Born in Tulsa, or has lived here 10+ years",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "1921",
+      "FORMS"
+     ],
+     "note": "The form asks \"half their life\"; the website says 10+ years."
+    },
+    {
+     "id": "c2",
+     "text": "Nominee is 18 or older",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "1921"
+     ]
+    },
+    {
+     "id": "c3",
+     "text": "Runs a for-profit business that has operated 3+ years, with a legal structure",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "1921"
+     ]
+    },
+    {
+     "id": "c4",
+     "text": "Past participant of W.E. Build, BiT Techstars or ACT House, or a pitch-night winner",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "1921"
+     ]
+    },
+    {
+     "id": "c5",
+     "text": "Cannabis, adult industry or nonprofit; or works for TCF/GKFF or is family of someone who does",
+     "effect": "disqualifies",
+     "conf": "doc",
+     "src": [
+      "1921"
+     ]
+    },
+    {
+     "id": "c6",
+     "text": "Eligible to work in the U.S.",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "QBIT"
+     ],
+     "note": "Published, but the form does not ask it."
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "check",
+     "name": "Eligibility check",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "checklist",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "1921"
+     ],
+     "note": "Nobody is named as checking nominees against past BiT programs."
+    },
+    {
+     "id": "s2",
+     "kind": "committee",
+     "name": "Selection committee",
+     "who": [
+      "committee",
+      "community"
+     ],
+     "count": null,
+     "judge": "scored",
+     "scale": null,
+     "criteria": [
+      "Business success and impact",
+      "Commitment to the Tulsa community",
+      "Embodies the resilient, innovative spirit of Black Wall Street"
+     ],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "1921 Award",
+     "conf": "guess",
+     "src": [
+      "1921"
+     ],
+     "note": "The three criteria are published. Whether they are scored is not, and no scores are kept today."
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "Awardees notified",
+     "conf": "guess",
+     "src": []
+    },
+    {
+     "id": "a2",
+     "text": "Award ceremony (late May or early June); attendance is required",
+     "conf": "doc",
+     "src": [
+      "1921"
+     ]
+    },
+    {
+     "id": "a3",
+     "text": "Permission to share the awardee's story, photos and testimonials",
+     "conf": "unknown",
+     "src": [
+      "1921"
+     ]
+    }
+   ],
+   "today": [
+    "Awarded",
+    "Rejected"
+   ],
+   "todaySrc": [
+    "LIFE"
+   ],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Are nominees interviewed, or chosen from the nomination alone?",
+     "why": ""
+    },
+    {
+     "id": "q2",
+     "q": "Are the three criteria scored? If so, where do the scores go?",
+     "why": ""
+    },
+    {
+     "id": "q3",
+     "q": "Who checks a nominee against past BiT programs?",
+     "why": ""
+    },
+    {
+     "id": "q4",
+     "q": "Is it always eight awardees?",
+     "why": ""
+    },
+    {
+     "id": "q5",
+     "q": "Do you collect permission to publicize awardees and testimonials?",
+     "why": ""
+    }
+   ],
+   "pattern": ""
+  },
+  {
+   "id": "first-friday",
+   "name": "First Friday Founders Market",
+   "group": "main",
+   "kind": "Market",
+   "short": "Evening market at BiT HQ (6 to 9 PM) where selected local businesses get free vending space.",
+   "basics": {
+    "entry": {
+     "v": "applying online for a market date",
+     "conf": "doc",
+     "src": [
+      "FFFM"
+     ]
+    },
+    "form": {
+     "v": "First Friday application (Typeform)",
+     "conf": "doc",
+     "src": [
+      "FFFM",
+      "FORMS"
+     ]
+    },
+    "first": {
+     "v": "",
+     "conf": "doc",
+     "src": []
+    },
+    "rhythm": {
+     "v": "monthly, on a rolling basis (five dates are published for 2026)",
+     "conf": "guess",
+     "src": [
+      "FFFM"
+     ]
+    },
+    "deadline": {
+     "v": "the 3rd Friday of the month before the market",
+     "conf": "guess",
+     "src": [
+      "FFFM"
+     ]
+    },
+    "size": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "decider": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Is a licensed business in Tulsa",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ],
+     "note": "The form asks; nothing says what a \"no\" does."
+    },
+    {
+     "id": "c2",
+     "text": "December Holiday Market is invite-only",
+     "effect": "noted",
+     "conf": "doc",
+     "src": [
+      "FFFM"
+     ]
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "screen",
+     "name": "Vendor selection",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "unknown",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "FFFM"
+     ],
+     "note": "\"Businesses are selected each month on a rolling basis.\" Nothing else is written down."
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "Vendor confirmed for a market date",
+     "conf": "guess",
+     "src": []
+    },
+    {
+     "id": "a2",
+     "text": "Sets up and sells, 6 to 9 PM at BiT HQ",
+     "conf": "doc",
+     "src": [
+      "FFFM"
+     ]
+    }
+   ],
+   "today": [],
+   "todaySrc": [],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Who picks vendors each month, and what do they look for?",
+     "why": ""
+    },
+    {
+     "id": "q2",
+     "q": "How many booths are there, and is there a waitlist?",
+     "why": ""
+    },
+    {
+     "id": "q3",
+     "q": "Do vendors apply again every month?",
+     "why": ""
+    },
+    {
+     "id": "q4",
+     "q": "How does someone get invited to the December Holiday Market?",
+     "why": ""
+    },
+    {
+     "id": "q5",
+     "q": "Is it every month, or only the published dates?",
+     "why": ""
+    }
+   ],
+   "pattern": ""
+  },
+  {
+   "id": "future-ceo",
+   "name": "Future CEO Camp",
+   "group": "main",
+   "kind": "Youth camp",
+   "short": "Week-long summer camp for students entering grades 6 to 12, ending in a Saturday showcase. A parent or guardian applies.",
+   "basics": {
+    "entry": {
+     "v": "a parent or guardian applying online",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "form": {
+     "v": "Future CEO Camp 2026 Participant Application",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "first": {
+     "v": "",
+     "conf": "doc",
+     "src": []
+    },
+    "rhythm": {
+     "v": "once a year, in July",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "deadline": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "size": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "decider": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Student attends a school in Tulsa County",
+     "effect": "disqualifies",
+     "conf": "guess",
+     "src": [
+      "FORMS"
+     ]
+    },
+    {
+     "id": "c2",
+     "text": "Student is entering grades 6 to 12",
+     "effect": "disqualifies",
+     "conf": "guess",
+     "src": [
+      "FORMS"
+     ]
+    },
+    {
+     "id": "c3",
+     "text": "Can attend the full camp week and the Saturday showcase",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    {
+     "id": "c4",
+     "text": "Parent works for GKFF, TCF or an affiliate (W-2)",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "check",
+     "name": "Eligibility check",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "checklist",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "FORMS"
+     ],
+     "note": ""
+    },
+    {
+     "id": "s2",
+     "kind": "screen",
+     "name": "Application review",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "unknown",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "LIFE"
+     ],
+     "note": "The CRM list only records Accepted or Rejected."
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "Family gets camp details",
+     "conf": "guess",
+     "src": []
+    },
+    {
+     "id": "a2",
+     "text": "Camp week, then the Saturday showcase",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    }
+   ],
+   "today": [
+    "Accepted",
+    "Rejected"
+   ],
+   "todaySrc": [
+    "LIFE"
+   ],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Is there a selection, or is it first come, first served?",
+     "why": ""
+    },
+    {
+     "id": "q2",
+     "q": "How many spots are there?",
+     "why": ""
+    },
+    {
+     "id": "q3",
+     "q": "Who decides, and what do you look for in the student's answers?",
+     "why": ""
+    },
+    {
+     "id": "q4",
+     "q": "Does working for GKFF or TCF rule a family out?",
+     "why": ""
+    }
+   ],
+   "pattern": "",
+   "note": "Camp facilitators apply on a separate form. That is staffing, so it is listed under sign-up forms."
+  },
+  {
+   "id": "post-accelerator",
+   "name": "Post-Accelerator Support",
+   "group": "main",
+   "kind": "Post-accelerator",
+   "short": "Six to twelve months of support for founders who finished an accelerator and stay in Tulsa: coaching, desk space and stipends.",
+   "basics": {
+    "entry": {
+     "v": "applying online",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "form": {
+     "v": "2026 Post-Accelerator Support Program Application",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "first": {
+     "v": "an optional interest form",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "rhythm": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "deadline": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "size": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "decider": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Finished an eligible accelerator cohort (the form names ACT Tulsa Cohort 6 and BiT Techstars Cohort 6)",
+     "effect": "disqualifies",
+     "conf": "guess",
+     "src": [
+      "FORMS"
+     ]
+    },
+    {
+     "id": "c2",
+     "text": "Will stay in Tulsa for 12 months after Demo Day",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    {
+     "id": "c3",
+     "text": "Can meet a business coach at least 4 hours a month",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "check",
+     "name": "Eligibility check",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "checklist",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "FORMS"
+     ],
+     "note": ""
+    },
+    {
+     "id": "s2",
+     "kind": "screen",
+     "name": "Application review",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "unknown",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [],
+     "note": "We found the form and very little else."
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "Coaching at least 4 hours a month, and desk space if needed",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    {
+     "id": "a2",
+     "text": "A completed data room unlocks stipends",
+     "conf": "doc",
+     "src": [
+      "SC"
+     ]
+    }
+   ],
+   "today": [
+    "New"
+   ],
+   "todaySrc": [
+    "LIFE"
+   ],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Is this still running in 2026, and which cohorts can apply?",
+     "why": ""
+    },
+    {
+     "id": "q2",
+     "q": "Who reviews applications? Is there an interview or a pitch?",
+     "why": ""
+    },
+    {
+     "id": "q3",
+     "q": "Is it scored, and who makes the final call?",
+     "why": ""
+    }
+   ],
+   "pattern": ""
+  },
+  {
+   "id": "arch",
+   "name": "ARCH Accelerator",
+   "group": "main",
+   "kind": "Accelerator",
+   "short": "Accelerator with a 2027 application: 20 hours a week in person in Tulsa from March 30. Its form closely mirrors W.E. Build's.",
+   "basics": {
+    "entry": {
+     "v": "applying online",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "form": {
+     "v": "ARCH Accelerator Application 2027",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "first": {
+     "v": "the Universal Interest Form",
+     "conf": "guess",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "rhythm": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "deadline": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "size": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "decider": {
+     "v": "a selection committee",
+     "conf": "guess",
+     "src": [
+      "FORMS"
+     ]
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Is in, or has finished, an accelerator (ACT Tulsa, BiT Techstars, W.E. Build, Lightship)",
+     "effect": "disqualifies",
+     "conf": "guess",
+     "src": [
+      "FORMS"
+     ],
+     "note": "Same question as W.E. Build's knock-out."
+    },
+    {
+     "id": "c2",
+     "text": "Lives in Tulsa",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    {
+     "id": "c3",
+     "text": "Can commit 20 hours a week in person from March 30",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "screen",
+     "name": "Application screening",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "scored",
+     "scale": 4,
+     "criteria": [
+      "Tulsa location / relocation readiness",
+      "Company age (founded less than 5 years ago)",
+      "Incorporated status",
+      "Number of paying clients, users or contracts",
+      "KPI tracking readiness",
+      "Accelerator saturation (at most 1 prior accelerator)",
+      "Revenue generated (recent)",
+      "Stage and product-market fit (in market, emerging or strong PMF)",
+      "Recurring revenue / early revenue quality",
+      "Customer acquisition strategy clarity",
+      "Commitment to 25% growth",
+      "Revenue"
+     ],
+     "outcomes": [
+      "advance",
+      "hold",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "W.E. Build Screening",
+     "conf": "guess",
+     "src": [
+      "HB"
+     ],
+     "note": "Assumed to work like W.E. Build."
+    },
+    {
+     "id": "s2",
+     "kind": "interview",
+     "name": "First round interview",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "scored",
+     "scale": 4,
+     "criteria": [
+      "Founder / solution fit",
+      "Market and go-to-market strategy",
+      "Tulsa commitment",
+      "ICP clarity",
+      "Traction proof",
+      "Sales process and pipeline",
+      "Business acumen",
+      "25% growth potential"
+     ],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": true,
+     "rubric": "Accelerator Interview",
+     "conf": "guess",
+     "src": [
+      "HB"
+     ],
+     "note": ""
+    },
+    {
+     "id": "s3",
+     "kind": "interview",
+     "name": "Second round interview",
+     "who": [
+      "committee"
+     ],
+     "count": null,
+     "judge": "scored",
+     "scale": 4,
+     "criteria": [
+      "Founder / solution fit",
+      "Market and go-to-market strategy",
+      "Tulsa commitment",
+      "ICP clarity",
+      "Traction proof",
+      "Sales process and pipeline",
+      "Business acumen",
+      "25% growth potential"
+     ],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": true,
+     "rubric": "Accelerator Interview",
+     "conf": "guess",
+     "src": [
+      "HB"
+     ],
+     "note": ""
+    },
+    {
+     "id": "s4",
+     "kind": "committee",
+     "name": "Committee decision",
+     "who": [
+      "committee"
+     ],
+     "count": null,
+     "judge": "discussion",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "waitlist",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "HB"
+     ],
+     "note": ""
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "Assumed to match W.E. Build: offer, checks, agreements, orientation",
+     "conf": "guess",
+     "src": [
+      "HB"
+     ]
+    }
+   ],
+   "today": [],
+   "todaySrc": [],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Is ARCH the next version of W.E. Build, or a separate program?",
+     "why": ""
+    },
+    {
+     "id": "q2",
+     "q": "Does it use W.E. Build's scoring and interview rounds?",
+     "why": ""
+    },
+    {
+     "id": "q3",
+     "q": "Do ARCH advisors sit on the selection committee?",
+     "why": ""
+    }
+   ],
+   "pattern": "Accelerator · 4-stage (v1)"
+  },
+  {
+   "id": "afrotech",
+   "name": "AfroTech Scholarship",
+   "group": "main",
+   "kind": "Scholarship",
+   "short": "A paid conference ticket for BiT founders to attend AfroTech and act as BiT ambassadors there.",
+   "basics": {
+    "entry": {
+     "v": "applying online",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "form": {
+     "v": "AfroTech 2026 Scholarship Application",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "first": {
+     "v": "",
+     "conf": "doc",
+     "src": []
+    },
+    "rhythm": {
+     "v": "once a year",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "deadline": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "size": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "decider": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Was in a BiT program in the last 12 months",
+     "effect": "disqualifies",
+     "conf": "guess",
+     "src": [
+      "FORMS"
+     ]
+    },
+    {
+     "id": "c2",
+     "text": "Agrees to attend the BiT happy hour at the conference",
+     "effect": "noted",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "screen",
+     "name": "Staff review",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "unknown",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "FORMS"
+     ],
+     "note": ""
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "BiT pays the ticket; the founder covers travel, hotel and meals",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    {
+     "id": "a2",
+     "text": "Serves as a BiT ambassador at the conference",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    }
+   ],
+   "today": [],
+   "todaySrc": [],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Who chooses, and how many tickets are there?",
+     "why": ""
+    },
+    {
+     "id": "q2",
+     "q": "What makes a strong application?",
+     "why": ""
+    }
+   ],
+   "pattern": ""
+  },
+  {
+   "id": "business-coaching",
+   "name": "Business Coaching",
+   "group": "main",
+   "kind": "Service",
+   "short": "Free coaching: eight sessions over three months, entered through its own intake form.",
+   "basics": {
+    "entry": {
+     "v": "filling in an intake form",
+     "conf": "doc",
+     "src": [
+      "SC"
+     ]
+    },
+    "form": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "first": {
+     "v": "",
+     "conf": "doc",
+     "src": []
+    },
+    "rhythm": {
+     "v": "any time (rolling)",
+     "conf": "guess",
+     "src": [
+      "SC"
+     ]
+    },
+    "deadline": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "size": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "decider": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    }
+   },
+   "checks": [],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "screen",
+     "name": "Intake review",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "unknown",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "hold",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [
+      "LIFE"
+     ],
+     "note": "The CRM list uses Accepted, On Hold and Rejected."
+    }
+   ],
+   "after": [
+    {
+     "id": "a1",
+     "text": "Matched with a coach for eight sessions over three months",
+     "conf": "doc",
+     "src": [
+      "SC"
+     ]
+    }
+   ],
+   "today": [
+    "Accepted",
+    "Completed",
+    "On Hold",
+    "Rejected"
+   ],
+   "todaySrc": [
+    "LIFE"
+   ],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Who reviews intake forms, and what makes someone a fit?",
+     "why": ""
+    },
+    {
+     "id": "q2",
+     "q": "What puts someone \"On Hold\"?",
+     "why": ""
+    },
+    {
+     "id": "q3",
+     "q": "Is EIR coaching part of this, or separate?",
+     "why": ""
+    }
+   ],
+   "pattern": ""
+  },
+  {
+   "id": "bookkeeping",
+   "name": "Bookkeeping Services",
+   "group": "main",
+   "kind": "Service",
+   "short": "Bookkeeping help for Tulsa entrepreneurs, through a short application.",
+   "basics": {
+    "entry": {
+     "v": "applying online",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "form": {
+     "v": "Bookkeeping Services Application",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    },
+    "first": {
+     "v": "",
+     "conf": "doc",
+     "src": []
+    },
+    "rhythm": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "deadline": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "size": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    },
+    "decider": {
+     "v": "",
+     "conf": "unknown",
+     "src": []
+    }
+   },
+   "checks": [
+    {
+     "id": "c1",
+     "text": "Entrepreneur in the Tulsa area with an existing or planned business",
+     "effect": "unknown",
+     "conf": "doc",
+     "src": [
+      "FORMS"
+     ]
+    }
+   ],
+   "steps": [
+    {
+     "id": "s1",
+     "kind": "screen",
+     "name": "Review",
+     "who": [
+      "staff"
+     ],
+     "count": null,
+     "judge": "unknown",
+     "scale": null,
+     "criteria": [],
+     "outcomes": [
+      "advance",
+      "decline"
+     ],
+     "scheduled": false,
+     "rubric": "",
+     "conf": "guess",
+     "src": [],
+     "note": ""
+    }
+   ],
+   "after": [],
+   "today": [],
+   "todaySrc": [],
+   "questions": [
+    {
+     "id": "q1",
+     "q": "Is this a BiT program, a partner service, or part of Business Coaching?",
+     "why": ""
+    },
+    {
+     "id": "q2",
+     "q": "Who decides, and is it still running?",
+     "why": ""
+    }
+   ],
+   "pattern": ""
+  }
+ ],
+ "signups": [
+  {
+   "id": "venture-summit",
+   "name": "BUILD Venture Summit",
+   "what": "Investors register for the summit (plus an interest form).",
+   "answer": "signup"
+  },
+  {
+   "id": "turkey-drive",
+   "name": "BiT Turkey Drive",
+   "what": "BiT participants sign up for one of 10 holiday baskets.",
+   "answer": "signup"
+  },
+  {
+   "id": "mlk-volunteers",
+   "name": "MLK Day Parade volunteers",
+   "what": "Volunteer sign-up, 2026 and 2027.",
+   "answer": "signup"
+  },
+  {
+   "id": "universal-interest",
+   "name": "Universal Interest Form",
+   "what": "One front door: people pick the programs they are interested in.",
+   "answer": "signup"
+  },
+  {
+   "id": "ce-interest",
+   "name": "CE: General Interest Form",
+   "what": "General interest, 7 questions.",
+   "answer": "signup"
+  },
+  {
+   "id": "community-partner",
+   "name": "Community Partnership Interest Form",
+   "what": "Organizations that want to partner.",
+   "answer": "signup"
+  },
+  {
+   "id": "webuild-interest",
+   "name": "W.E. Build Cohort 4 Interest Form",
+   "what": "Interest before the W.E. Build application opens.",
+   "answer": "signup"
+  },
+  {
+   "id": "pas-interest",
+   "name": "Post-Accelerator Support Interest Form",
+   "what": "Interest before the full application.",
+   "answer": "signup"
+  },
+  {
+   "id": "arch-advisors",
+   "name": "ARCH Advisor sign-up",
+   "what": "Advisors offer their time to ARCH.",
+   "answer": "signup"
+  },
+  {
+   "id": "fceo-facilitators",
+   "name": "Future CEO Camp facilitators",
+   "what": "Adults apply to teach at the camp.",
+   "answer": "unsure"
+  }
+ ],
+ "dormant": [
+  {
+   "id": "boost",
+   "name": "BOOST Awards",
+   "what": "CRM list records Awarded $2,500, Awarded $5,000 or Rejected. No 2026 form found."
+  },
+  {
+   "id": "techstars",
+   "name": "BiT Techstars Accelerator",
+   "what": "Named on forms (Cohort 6) and in the CRM. No current form found."
+  },
+  {
+   "id": "blueprint",
+   "name": "Blueprint: Tulsa",
+   "what": "Run by Visible Hands. No BiT form or CRM list found."
+  },
+  {
+   "id": "act-house",
+   "name": "ACT House / ACT Tulsa",
+   "what": "Named as a past accelerator on several forms and in the CRM."
+  },
+  {
+   "id": "lightship",
+   "name": "Lightship Bootcamp",
+   "what": "A CRM list exists with no statuses beyond \"New\"."
+  },
+  {
+   "id": "eir",
+   "name": "EIR (entrepreneur in residence)",
+   "what": "Coaching for W.E. Build and BUILD UP participants, valued at $75 an hour."
+  }
+ ]
+}
